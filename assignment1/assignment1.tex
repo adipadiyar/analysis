@@ -1,0 +1,142 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+
+\newtheorem{claim}{Claim}
+\newtheorem{definition}{Definition}
+
+\title{Graduate Analysis 1: Assignment 1}
+\author{Aditya Padiyar}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{definition}
+  An outer measure $\mu$ on $X$ is a monotone, countably subadditive map $\mu:2^X \to [0,\infty]$ such that $\mu(\emptyset)=0$ 
+\end{definition}
+
+\begin{definition}
+  A countable union of nowhere dense sets is said to be a meagre set.
+\end{definition}
+
+\begin{definition}
+  For $A \subseteq \mathbb{R}^n$, let $\mu_\mathbb{Q}(A)$ denote the number of rational points in $A$
+\end{definition}
+
+\begin{claim}
+  Suppose $(X,\mathcal{F})$ is such that $X \in \mathcal{F}$ and $A \cap B^c \in \mathcal{F}$ for all $A,B \in \mathcal{F}$. Then $\mathcal{F}$ is an algebra on $X$
+\end{claim}
+
+\begin{proof} We must prove two things:
+  \begin{itemize}
+    \item Substituting $X$ for $A$ we get that $\mathcal{F}$ is closed under complements
+    \item Now substituting $B^c$ for $B$ we get closure under binary intersection
+  \end{itemize}
+\end{proof}
+
+\begin{claim}
+  Let $S \subseteq (0,1)$ be defined by \[S = \{x: \text{ there is a decimal expansion of }x \text{ that contains the digit zero}\}\]
+  Then $S$ is Borel and $\lambda(S)=1$
+\end{claim}
+
+\begin{proof}
+  Let \[A_n=\{x: \text{some decimal expansion of }x\text{ has zero among the first }n\text{ digits} \}\] 
+  Clearly we have $\lambda[(A_n)^c]=(\frac{9}{10})^n$. Now $\lambda(A_n)$ and since $A_n$ increases to $S$ we get $\lambda(S)=1$
+\end{proof}
+
+\begin{claim}
+  If $\mu_1$ and $\mu_2$ are outer measures on $X$ then so is $\nu = \text{max}(\mu_1,\mu_2)$ 
+\end{claim}
+
+\begin{proof}
+  Let $A_n \subseteq X$ and $B=\bigcup_{i=1}^\infty A_n$. Then \[\nu(B)= \mu_i(B) \leq \sum_{n=1}^\infty \mu_i(A_n) \leq \sum_{n=1}^\infty \nu(A_n)\]
+\end{proof}
+
+\begin{claim}
+  There exists $G,F \in  \mathcal{B}[0,1]$ such that 
+  \begin{itemize}
+    \item $G \cup F= [0,1]$
+    \item $F$ is meagre in $\mathbb{R}$
+    \item $\lambda(G)=0$
+  \end{itemize}
+\end{claim}
+
+\begin{proof}
+  Suppose $\{q_1,q_2,\dots\}=\mathbb{Q}$. Define \[U_k=\bigcup_{j=1}^\infty (q_j - \frac{1}{2^{j+k+1}}, q_j + \frac{1}{2^{j+k+1}})\]
+  We have $\lambda(U_k) \leq \frac{1}{2^{k}}$ by countable subadditivity. Further, $U_k$ is dense in $\mathbb{R}$ and hence $(U_k)^c$ is nowhere dense in $\mathbb{R}$.
+  Define \[G=[0,1] \bigcap_{k=1}^\infty U_k\] then $\lambda(G)\leq \lambda(U_k)$ by monotone property of measure. 
+  Taking the limit, we see that $\lambda(G)=0$. Now define \[F = [0,1] \setminus G = [0,1] \cap \bigcup_{k=1}^\infty (U_k)^c\] 
+  which is meagre in $\mathbb{R}$
+\end{proof}
+
+\begin{claim}
+  Suppose $f_n:[0,1] \to \mathbb{R}$ are measurable. 
+  Then there exist a sequence of positive integers $k_n$ 
+  such that $\frac{f_n(x)}{k_n} \to 0$ for almost all $x \in [0,1]$
+\end{claim}
+
+\begin{proof}
+  Define \[E_{m,n}=\{x:|f_n(x)| \geq \frac{m}{n}\}\]
+  For every fixed $n$, we have that $E_{m,n} \downarrow \emptyset$ 
+  and hence $\lambda (E_{m,n}) \to 0$ since the measure space is finite. Hence $\lambda(E_{k_n,n}) \leq \frac{1}{2^n}$ for some large $k_n$.
+  
+  Define $A_n=E_{k_n,n}$ and $B=\text{limsup}A_n$. We see that $\sum_{n=1}^\infty \lambda(A_n) \leq 1$ and hence $\lambda(B)=0$ by Borel-Cantelli.
+  
+  Now let $x \in B^c$. Then for $n \geq M$ we have $x \notin A_n$ which means $\frac{|f_n(x)|}{k_n}<\frac{1}{n}$ 
+\end{proof}
+
+\begin{claim}
+  Any Radon measure on $\mathbb{R}^n$ must be $\sigma$ finite
+\end{claim}
+
+\begin{proof}
+  Define $K_m=[-m,m]^n$. We have $\mu(K_m)<\infty$ since $K_m$ is compact. 
+  Since $\mathbb{R}^n=\bigcup_{m=1}^\infty K_m$ the measure $\mu$ is $\sigma$ finite.
+\end{proof}
+
+\begin{claim}
+  $\mu_\mathbb{Q}$ is a $\sigma$ finite measure on $(\mathbb{R}^n,\mathcal{B}(\mathbb{R}^n))$
+\end{claim}
+
+\begin{proof}
+  We have that $\mathbb{R}^n= (\mathbb{R}^n \setminus \mathbb{Q}^n ) \bigcup_{q \in \mathbb{Q}^n}\{q\}$. Each set in this union has finite measure.
+\end{proof}
+
+\begin{claim}
+  $\mu_\mathbb{Q}$ is not Radon
+\end{claim}
+
+\begin{proof}
+  We have $\mu_\mathbb{Q}[0,1]^n=\infty$, but a Radon measure must take finite values on every compact set
+\end{proof}
+
+\begin{claim}
+  Suppose $\phi:X \to [0,\infty]$ is a measurable function on a $\sigma$-finite measure space $X$. 
+  Define \[S=\{(x,t) \in X \times (0,\infty):\phi(x)>t\}\] 
+  Define $f:(0,\infty) \to [0,\infty]$ by $f(t)=\mu ([S]^t)$ and $\mathcal{E}=\int_X \phi$. Then the following hold:
+  \begin{itemize}
+    \item $f$ is measurable and $\mathcal{E} = \int_{(0,\infty)}f$
+    \item $f(t) \leq \frac{\mathcal{E}}{t}$ (Markov's inequality)
+  \end{itemize}
+\end{claim}
+
+\begin{proof}
+  We have the following simple facts
+  \begin{itemize}
+    \item $f$ is monotone decreasing and hence measurable
+    \item The map $\phi \times \text{id}: X \times (0,\infty) \to [0,\infty] \times (0,\infty)$ is measurable
+    \item The set $\{(t_1,t_2):t_1 > t_2\}$ is measurable in $[0,\infty] \times (0,\infty)$
+    \item For all $x$ we have $\int_{(0,\infty)}1_{[S]_x}=\phi(x)$
+  \end{itemize}
+  
+  Hence the set $S$ is measurable and by Tonelli, we have 
+  \[\mathcal{E}=\int_X \int_{(0,\infty)}1_{[S]_x}=\int_{(0,\infty)}\int_X 1_{[S]^t}=\int_{(0,\infty)}f\]
+  Now fix $t \in (0,\infty)$. We have $t1_{[S]^t} \leq \phi$. Integrating we get the desired result.
+\end{proof}
+
+
+\end{document}
