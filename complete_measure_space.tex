@@ -1,0 +1,90 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsfonts,amsmath,amsthm,amssymb}
+
+\newtheorem{definition}{Definition}
+\newtheorem{claim}{Claim}
+
+\title{Complete measure spaces}
+\author{Aditya Padiyar}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{definition}
+  A measure space is complete if any subset of a measure zero set is measurable
+\end{definition}
+
+\begin{itemize}
+  \item Suppose $(\Omega,\mathcal{F},\mu)$ is a measure space
+  \item Consider the collection $\mathcal{G}$ of all sets $A\subseteq \Omega$ for which there are $E_1,E_2 \in \mathcal{F}$ satisfying:
+
+        \begin{itemize}
+          \item $\mu(E_2 \setminus E_1)=0$
+          \item $E_1 \subseteq A \subseteq E_2$
+        \end{itemize}
+        
+  \item Define $\nu:\mathcal{G} \to [0,\infty]$ by $\nu(A)=\text{sup}\{\mu(E): E \subseteq A, E \in \mathcal{F} \}$
+
+\end{itemize}
+
+\begin{claim}
+  Suppose $A \in \mathcal{G}$ with $E_1,E_2$ as before. Then $\nu(A)=\mu(E_1)=\mu(E_2)$
+\end{claim}
+
+\begin{claim}
+  $\mathcal{G}$ is a $\sigma$-algebra on $\Omega$
+\end{claim}
+
+\begin{proof}
+  We show countable unions and complements
+  \begin{itemize}
+    \item Suppose $A_n \in \mathcal{G}$ with $E_n^1 \subseteq A_n \subseteq E_n^2$ as before. Let $E_1 = \bigcup_{n=1}^\infty E_n^1$ and $E_2=\bigcup_{n=1}^\infty E_n^2$. 
+          Now \[E_2 \setminus E_1 = \bigcup_{n=1}^\infty (E_n^2 \cap E_1^c) \subseteq \bigcup_{n=1}^\infty (E_n^2 \cap (E_n^1)^c)\]
+          Hence \[\mu(E_2 \setminus E_1) \leq \sum_{n=1}^\infty \mu(E_n^2 \setminus E_n^1)=0\]
+          Since $E_1 \subseteq A \subseteq E_2$ where $A=\bigcup_{n=1}^\infty A_n$ we get that $A \in \mathcal{G}$
+    \item If $A \in \mathcal{G}$ with $E_1,E_2$ as before then $E_2^c \subseteq A^c \subseteq E_1^c$. 
+          Since $B = E_1^c \setminus E_2^c = E_2 \setminus E_1$ we have $\mu(B)=0$ which shows closure under complements.
+  \end{itemize}
+  
+\end{proof}
+
+\begin{claim}
+  $\nu$ is a measure on $(\Omega,\mathcal{G})$
+\end{claim}
+
+\begin{proof}
+  It suffices to prove countable subadditivity and binary additivity:
+  \begin{itemize}
+    \item Suppose $A_n \in \mathcal{G}$ with $E_n^i$ as before and $B \subseteq A = \bigcup_{n=1}^\infty A_n$ with $B \in \mathcal{F}$. We have
+          $B \subseteq \bigcup_{n=1}^\infty E_n^2$ so $\mu(B) \leq \sum_{n=1}^\infty \mu( E_n^2)$.
+          By the claim we get $\mu(E_n^2) = \nu(A_n)$.
+          Now by the definition of supremum we get countable subadditivity
+    \item Suppose $A_1,A_2 \in \mathcal{G}$ are disjoint with $E_1^i,E_2^i$ as before. 
+          Now \[\nu(A_1 \sqcup A_2) \geq \nu (E_1^1 \sqcup E_2^1) = \mu(E_1^1) + \mu(E_2^1)=\nu(A_1)+\nu(A_2)\]
+          Finally, use subadditivity as just proved.
+  \end{itemize}
+\end{proof}
+
+\begin{claim}
+   $\nu$ is the unique measure on $(\Omega,\mathcal{G})$ such that $\nu_{|\mathcal{F}}=\mu$
+\end{claim}
+
+\begin{proof}
+    Assume $\nu_1$ and $\nu_2$ are two such measures. We see that $\nu_i(A)=\nu_i(E_1)+\nu_i(A \setminus E_1)$ by countable additivity. 
+    By monotonicity $\nu_i(A \setminus E_1)\leq \nu_i(E_2 \setminus E_1)=0$. Hence $\nu_i(A)=\mu(E_1)$
+\end{proof}
+
+\begin{claim}
+  $(\Omega,\mathcal{G},\nu)$ is a complete measure space.
+\end{claim}
+
+\begin{proof}
+  Suppose $\nu(E)=0$ and $F \subseteq E$. We have $E_1, E_2$ as before. Since $E_2 \setminus E \subseteq E_2 \setminus E_1$ we have $\nu(E_2 \setminus E)=0$. By countable additivity $\nu(E_2)=\nu(E_2 \setminus E)+\nu(E)=0$. Hence $\mu(E_2)=0$ as well. Since $\emptyset \subseteq F \subseteq E_2$ we get that $F \in \mathcal{G}$
+\end{proof}
+
+\end{document}
