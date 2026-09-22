@@ -1,0 +1,55 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsthm,amsfonts,amssymb,amsmath}
+
+\newtheorem{claim}{Claim}
+\newtheorem{definition}{Definition}
+
+\title{CDF measures}
+\author{Aditya Padiyar}
+
+\begin{document}
+
+\maketitle
+
+\begin{claim}
+  The collection of finite unions of (possibly unbounded) intervals of the type $(a,b]$ forms an algebra $\mathcal{A}$ of subsets of $\mathbb{R}$
+\end{claim}
+
+\begin{claim}
+  Every $A \in \mathcal{A}$ has finitely many connected components
+\end{claim}
+
+$F,G:\mathbb{R} \to \mathbb{R}$ denote nondecreasing, right continuous functions
+
+\begin{definition}
+  For an interval $I$ with endpoints $a$ and $b$ we define \[\text{length}_F(I)=F(b)-F(a)\] where we use the appropriate limits of $F$ whenever the interval is unbounded
+\end{definition}
+
+\begin{claim}
+  Define $\mu_F:\mathcal{A} \to [0,\infty]$ by \[\mu_F(A)=\sum_{\text{connected component } I } \text{length}_F(I)\] 
+  Then $\mu_F$ is a measure on the algebra $\mathcal{A}$
+\end{claim}
+
+We now use the Caratheodory extension theorem to extend to $\mathcal{B}(\mathbb{R})$
+
+\begin{claim}
+  Suppose $I=(a,b]$ is bounded. Then we have \[\int_I F d\mu_G + \int_I G d \mu_F=F(b)G(b)-F(a)G(a)\] assuming $F$ and $G$ have no common points of discontinuity
+\end{claim}
+
+\begin{proof}
+  Let $D$ be the diagonal of the square $I \times I$
+  
+  \begin{itemize}
+    \item Let $S_G$ denote the set of points of discontinuity of $G$. A standard result tells us that $S_G$ is countable. Since $F$ and $G$ have no common discontinuities we have $\mu_F(S_G)=0$
+    \item Now $\mu_D=\int_I \mu_G\{x\} d\mu_F=\int_I 1_{S_G} d\mu_F = 0$
+    \item We have $F(x)=\mu_F(a,x] + F(a)$ and $G(x)=\mu_G(a,x]+G(a)$
+  \end{itemize}
+  
+  Use Tonelli's theorem to rewrite the left hand side as 
+  \[F(a)\text{length}_G(I)+G(a)\text{length}_F(I)+\text{length}_F(I)\text{length}_G(I)+\mu(D)\]. Now simplify the equation to get the desired result
+\end{proof}
+
+\end{document}
