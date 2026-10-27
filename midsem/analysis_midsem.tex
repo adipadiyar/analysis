@@ -1,0 +1,81 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+\newtheorem{claim}{Claim}
+\newtheorem{definition}{Definition}
+
+\title{Graduate Analysis 1: midsem exam}
+\author{Aditya Padiyar}
+\date{October 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{definition}
+  A sequence of functions $f_n$ converges almost uniformly to $f$ 
+  if for every $\epsilon>0$ there is a set $A_\epsilon$ with $\mu(A_\epsilon)<\epsilon$ such that 
+  $f_n$ converges uniformly to $f$ on $(A_\epsilon)^c$
+\end{definition}
+
+\begin{definition}
+  $f$ is integrable if $\int |f|<\infty$
+\end{definition}
+
+\begin{definition}
+  A sequence of integrable functions $f_n$ is \textbf{uniformly integrable} if 
+  for all $\epsilon>0$ there is $\delta>$ such that $\int_A |f_n| < \epsilon$ for all sets $A$ with $\mu(A)<\delta$
+\end{definition}
+
+\begin{claim}
+  On a finite measure space, convergence almost everywhere is equivalent to convergence almost uniformly
+\end{claim}
+
+\begin{claim}
+  Suppose $f_n^0,f_n^1,f_n^2,f_0,f_1,f_2$ are functions such that 
+  \begin{itemize}
+    \item $f_n^i,f_0,f_2$ are integrable
+    \item $f_n^0 \leq f_n^1 \leq f_n^2$
+    \item $f_n^i \to f_i$
+    \item $\int f_n^0 \to \int f_0$ and $\int f_n^2 \to \int f_2$
+  \end{itemize}
+  
+  Then we have 
+  \begin{itemize}
+    \item $f_1$ is integrable
+    \item $\int f_n^1 \to \int f_1$
+  \end{itemize}
+\end{claim}
+
+\begin{claim}
+  Suppose $f:\mathbb{R}^2 \to \mathbb{R}$ is measurable and satisfies:
+  \begin{itemize}
+    \item $x \to f(x_0,x)$ is integrable for all $x_0$
+    \item $g(x,y)=\partial_x f(x,y)$ exists everywhere
+    \item There is an integrable real valued function $h$ on $\mathbb{R}$ such that $|g(x,y)| \leq h(y)$ 
+  \end{itemize}
+  
+  Let $\phi(x)= \int f(x,y)dy$. Then we have that 
+  \begin{itemize}
+    \item $\phi$ is differentiable
+    \item $\phi'(x)=\int g(x,y)dy$
+  \end{itemize}
+\end{claim}
+
+\begin{claim}
+  If $f_n$ are uniformly integrable and converge pointwise to $f$, then we have:
+  \begin{itemize}
+    \item $f$ is integrable
+    \item $\int f_n  \to \int f$
+  \end{itemize}
+\end{claim}
+
+\begin{claim}
+  Suppose $X$ is a random variable with finite expectation and $F \subseteq \mathbb{R}$ is closed.
+  Suppose that whenever $E$ has positive probability $\frac{\mathbb{E}[X1_E]}{P(E)} \in F$. Then $P(X \in F)=1$
+\end{claim}
+
+\end{document}
