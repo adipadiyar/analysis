@@ -75,7 +75,19 @@
 
 \begin{claim}
   Suppose $X$ is a random variable with finite expectation and $F \subseteq \mathbb{R}$ is closed.
-  Suppose that whenever $E$ has positive probability $\frac{\mathbb{E}[X1_E]}{P(E)} \in F$. Then $P(X \in F)=1$
+  Suppose that whenever $P(E)>0$ we have $\frac{\mathbb{E}[X1_E]}{P(E)} \in F$. Then $P(X \in F)=1$
+\end{claim}
+
+\begin{claim}
+  Define the Cantor set as in 2.74 of Axler. Define $f=\sum_{n=1}^\infty n1_{G_n}$. Then we have
+  \begin{itemize}
+    \item $f$ is measurable
+    \item $\int f = 1$
+  \end{itemize}
+\end{claim}
+
+\begin{claim}
+  Suppose $E \subseteq [0,1] \times [0,1]$. If $\lambda\{x:\lambda(E_x)\leq\frac{1}{2}\}=1$ then $\lambda\{y:\lambda(E^y)=1\}\leq \frac{1}{2}$
 \end{claim}
 
 \end{document}
