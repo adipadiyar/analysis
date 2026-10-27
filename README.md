@@ -1,1 +1,1 @@
-Information about graduate level mathematical analysis
+Information about mathematical analysis
