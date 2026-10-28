@@ -31,8 +31,16 @@
 \end{definition}
 
 \begin{claim}
-  On a finite measure space, convergence almost everywhere is equivalent to convergence almost uniformly
+  On a finite measure space $(X,\Sigma,\mu)$, convergence almost everywhere is equivalent to convergence almost uniformly
 \end{claim}
+
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item See Egorov's theorem in Axler for a proof of the forward implication
+    \item Let $B \in \Sigma$ denote the points where convergence does not occur. Then $B \subseteq A_\epsilon$ which implies that $\mu(B)=0$
+  \end{itemize}
+\end{proof}
 
 \begin{claim}
   Suppose $f_n^0,f_n^1,f_n^2,f_0,f_1,f_2$ are functions such that 
@@ -49,6 +57,27 @@
     \item $\int f_n^1 \to \int f_1$
   \end{itemize}
 \end{claim}
+
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item Taking limits we have $f_0 \leq f_1 \leq f_2$. Therefore $|f_1| \leq |f_0| + |f_2|$ which shows that $f_1$ is integrable.
+    \item Define the following:
+          \begin{itemize}
+            \item $g_n=f_n^1-f_n^0$
+            \item $h_n=f_n^2-f_n^1$
+            \item $g=f_1-f_0$
+            \item $h=f_2-f_1$
+          \end{itemize}
+    \item By Fatou's lemma $\int g \leq \text{liminf} \int g_n$ and $\int h \leq \text{liminf} \int h_n$
+    \item We have \begin{align*}
+                    \text{limsup} \int g_n = \text{limsup} \int (g_n +h_n -h_n) \\
+                    = \int f_2 - \int f_0 - \text{liminf} \int h_n \leq \int g 
+                  \end{align*}
+    \item Hence $\int g_n \to \int g$
+    \item We have $\int f_n^1 = \int g_n + \int f_n^0 \to \int g + \int f_0 = \int f_1$
+  \end{itemize}
+\end{proof}
 
 \begin{claim}
   Suppose $f:\mathbb{R}^2 \to \mathbb{R}$ is measurable and satisfies:
