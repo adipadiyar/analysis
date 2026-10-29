@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{hyperref}
 
 \newtheorem{claim}{Claim}
 \newtheorem{definition}{Definition}
@@ -22,13 +23,13 @@
 \end{definition}
 
 \begin{definition}
-  $f$ is integrable if $\int |f|<\infty$
-\end{definition}
-
-\begin{definition}
-  A sequence of integrable functions $f_n$ is \textbf{uniformly integrable} if 
+  A sequence $f_n \in L^1$ is \textbf{uniformly integrable} if 
   for all $\epsilon>0$ there is $\delta>$ such that $\int_A |f_n| < \epsilon$ for all sets $A$ with $\mu(A)<\delta$
 \end{definition}
+
+\begin{claim}\label{uniform_sum}
+  The sum of two uniformly integrable sequences is uniformly integrable
+\end{claim}
 
 \begin{claim}
   On a finite measure space $(X,\Sigma,\mu)$, convergence almost everywhere is equivalent to convergence almost uniformly
@@ -45,7 +46,7 @@
 \begin{claim}
   Suppose $f_n^0,f_n^1,f_n^2,f_0,f_1,f_2$ are functions such that 
   \begin{itemize}
-    \item $f_n^i,f_0,f_2$ are integrable
+    \item $f_n^i,f_0,f_2 \in L^1$ 
     \item $f_n^0 \leq f_n^1 \leq f_n^2$
     \item $f_n^i \to f_i$
     \item $\int f_n^0 \to \int f_0$ and $\int f_n^2 \to \int f_2$
@@ -53,7 +54,7 @@
   
   Then we have 
   \begin{itemize}
-    \item $f_1$ is integrable
+    \item $f_1 \in L^1$ 
     \item $\int f_n^1 \to \int f_1$
   \end{itemize}
 \end{claim}
@@ -61,7 +62,7 @@
 \begin{proof}
   Consider the following:
   \begin{itemize}
-    \item Taking limits we have $f_0 \leq f_1 \leq f_2$. Therefore $|f_1| \leq |f_0| + |f_2|$ which shows that $f_1$ is integrable.
+    \item Taking limits we have $f_0 \leq f_1 \leq f_2$. Therefore $|f_1| \leq |f_0| + |f_2|$ which shows that $f_1 \in L^1$ 
     \item Define the following:
           \begin{itemize}
             \item $g_n=f_n^1-f_n^0$
@@ -83,9 +84,9 @@
   Suppose $f:\mathbb{R}^2 \to \mathbb{R}$ is measurable and satisfies:
   
   \begin{itemize}
-    \item $x \to f(x_0,x)$ is integrable for all $x_0$
+    \item $[x \to f(x_0,x)] \in L^1$ for all $x_0$
     \item $g(x,y)=\partial_x f(x,y)$ exists everywhere
-    \item There is an integrable real valued function $h$ on $\mathbb{R}$ such that $|g(x,y)| \leq h(y)$ 
+    \item There is $h \in L^1$ on $\mathbb{R}$ such that $|g(x,y)| \leq h(y)$ 
   \end{itemize}
   
   Let $\phi(x)= \int f(x,y)dy$. Then $\phi'(x)=\int g(x,y)dy$
@@ -105,12 +106,20 @@
 
 \begin{claim}
   Suppose $X$ is a finite measure space.
-  If $f_n:X \to [-\infty,\infty]$ are uniformly integrable and converge pointwise to $f:X \to [-\infty,\infty]$, then we have:
-  \begin{itemize}
-    \item $f$ is integrable
-    \item $\int f_n  \to \int f$
-  \end{itemize}
+  If $f_n:X \to \mathbb{R}$ are uniformly integrable and converge pointwise to $f:X \to \mathbb{R}$, then $\int |f_n-f| \to 0$
 \end{claim}
+
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item We may assume $f=0$ by 3.28 of Axler and \ref{uniform_sum}
+    \item Let $\alpha > 0$ and $\delta_\alpha$ be such that $\mu(A)<\delta_\alpha$ makes $\int_A |f_n|<\frac{\alpha}{2}$
+    \item Choose $A_\alpha$ with $\mu(A)<\delta_\alpha$ such that $f_n$ converges uniformly to $0$ on $(A_\alpha)^c$
+    \item Then \[\int |f_n| = \int_{A_\alpha} |f_n| + \int_{(A_\alpha)^c} |f_n| \leq \frac{\alpha}{2} + \int_{(A_\alpha)^c} |f_n| \to \frac{\alpha}{2}\]
+  \end{itemize}
+\end{proof}
+
+
 
 \begin{claim}
   Suppose $X$ is a random variable with finite expectation and $F \subseteq \mathbb{R}$ is closed.
