@@ -81,21 +81,31 @@
 
 \begin{claim}
   Suppose $f:\mathbb{R}^2 \to \mathbb{R}$ is measurable and satisfies:
+  
   \begin{itemize}
     \item $x \to f(x_0,x)$ is integrable for all $x_0$
     \item $g(x,y)=\partial_x f(x,y)$ exists everywhere
     \item There is an integrable real valued function $h$ on $\mathbb{R}$ such that $|g(x,y)| \leq h(y)$ 
   \end{itemize}
   
-  Let $\phi(x)= \int f(x,y)dy$. Then we have that 
-  \begin{itemize}
-    \item $\phi$ is differentiable
-    \item $\phi'(x)=\int g(x,y)dy$
-  \end{itemize}
+  Let $\phi(x)= \int f(x,y)dy$. Then $\phi'(x)=\int g(x,y)dy$
 \end{claim}
 
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item Fix $x \in \mathbb{R}$ and define $q(t,y)=\frac{f(x+t,y)-f(x,y)}{t}$ for $t \neq 0$
+    \item By the mean value theorem $q(t,y)=g(\alpha(t,y),y)$
+    \item Pick $t_n \neq 0$ such that $t_n \to 0$
+    \item We have $\frac{\phi(x+t_n)-\phi(x)}{t_n} = \int q(t_n,y)dy$
+    \item We have $q(t_n,y) \to g(x,y)$ for every $y$
+    \item By DCT $\phi'(x)= \int g(x,y)dy$
+  \end{itemize}
+\end{proof}
+
 \begin{claim}
-  If $f_n$ are uniformly integrable and converge pointwise to $f$, then we have:
+  Suppose $X$ is a finite measure space.
+  If $f_n:X \to [-\infty,\infty]$ are uniformly integrable and converge pointwise to $f:X \to [-\infty,\infty]$, then we have:
   \begin{itemize}
     \item $f$ is integrable
     \item $\int f_n  \to \int f$
