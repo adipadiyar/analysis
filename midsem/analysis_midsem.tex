@@ -126,13 +126,29 @@
   Suppose that whenever $P(E)>0$ we have $\frac{\mathbb{E}[X1_E]}{P(E)} \in F$. Then $P(X \in F)=1$
 \end{claim}
 
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item Suppose $P(X \notin F)>0$
+    \item Then there is a compact interval $[a,b] \subseteq F^c$ such that $P(X \in [a,b])>0$
+    \item Let $E$ be the event $\{w: X(w) \in [a,b]\}$
+    \item We have $\frac{\mathbb{E}[X1_E]}{P(E)} \in [a,b]$ which is a contradiction
+  \end{itemize}
+\end{proof}
+
 \begin{claim}
   Define the Cantor set as in 2.74 of Axler. Define $f=\sum_{n=1}^\infty n1_{G_n}$. Then we have
   \begin{itemize}
     \item $f$ is measurable
-    \item $\int f = 1$
+    \item $\int f = 3$
   \end{itemize}
 \end{claim}
+
+\begin{proof}
+  Define $f_k = \sum_{n=1}^k n1_{G_n}$. Then $f_k$ converges to $f$ pointwise. 
+  This makes $f$ measurable. By the monotone convergence theorem, \[\int f = \sum_{n=1}^\infty n\lambda(G_n)\]
+  Since $\lambda(G_n)=\frac{1}{2}(\frac{2}{3})^n$, the result follows
+\end{proof}
 
 \begin{claim}
   Suppose $E \subseteq [0,1] \times [0,1]$. If $\lambda\{x:\lambda(E_x)\leq\frac{1}{2}\}=1$ then $\lambda\{y:\lambda(E^y)=1\}\leq \frac{1}{2}$
