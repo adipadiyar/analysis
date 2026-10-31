@@ -151,7 +151,23 @@
 \end{proof}
 
 \begin{claim}
-  Suppose $E \subseteq [0,1] \times [0,1]$. If $\lambda\{x:\lambda(E_x)\leq\frac{1}{2}\}=1$ then $\lambda\{y:\lambda(E^y)=1\}\leq \frac{1}{2}$
+  Suppose we have the following:
+  
+  \begin{itemize}
+    \item $E \subseteq [0,1] \times [0,1]$ is measurable 
+    \item $A=\{x:\lambda(E_x)\leq\frac{1}{2}\}$ and $B=\{y:\lambda(E^y)=1\}$
+    \item $\lambda(A)=1$ 
+  \end{itemize}
+  
+  Then we have $\lambda(B) \leq \frac{1}{2}$
 \end{claim}
+
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item By Tonelli's theorem, $\lambda^2(E)=\int_0^1 \lambda(E_x)dx = \int_A \lambda(E_x) \leq \frac{1}{2}$
+    \item We also have $\lambda^2(E)= \int_0^1 \lambda(E_y)dy \geq \int_B \lambda(E_y)dy = \lambda(B)$
+  \end{itemize}
+\end{proof}
 
 \end{document}
