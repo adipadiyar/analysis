@@ -1,0 +1,55 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+
+\newtheorem{claim}{Claim}
+
+\title{Graduate Analysis 1: Assignment 2}
+\author{Aditya Padiyar}
+\date{November 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{claim}
+  Suppose $X$ is a Banach space and $P \in \text{End}(X)$ satisfies the following:
+  \begin{itemize}
+    \item $P^2=P$
+    \item $\text{image }P$ and $\text{ker }P$ are closed
+  \end{itemize}
+  
+  Then $P$ is continuous
+\end{claim}
+
+\begin{claim}
+  Define $T \in \mathcal{L}(\ell^\infty,\mathbb{F}^\omega)$ by \[T(x_1,,x_2 \dots) = (x_1,\frac{x_1 + x_2}{2},\frac{x_1 + x_2 +x_3}{3},\dots)\]
+  
+  Then we have:
+  \begin{itemize}
+    \item $T \in B(\ell^\infty)$
+    \item $||T||=1$
+  \end{itemize} 
+
+\end{claim}
+
+\begin{claim}
+  Suppose $S \in B(H)$ is an isometry. Define $\phi \in \text{End}(B(H))$ by $T \to STS^*$. Then we have the following:
+  \begin{itemize}
+    \item $\phi$ is injective
+    \item $\phi$ is continuous
+    \item $||\phi||=1$
+  \end{itemize}
+\end{claim}
+
+\begin{claim}
+  Suppose $U \in B(H)$ is self adjoint and unitary. Define $P=\frac{U+I}{2}$. Then $P^2=P$
+\end{claim}
+
+\begin{claim}
+  For $f \in C[0,1]$, define $T_f \in B(L^2[0,1])$ by $g \to gf$. Then the map $f \to T_f$ is continuous.
+\end{claim}
+
+\end{document}
