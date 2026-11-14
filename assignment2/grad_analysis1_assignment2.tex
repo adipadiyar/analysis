@@ -24,6 +24,16 @@
   Then $P$ is continuous
 \end{claim}
 
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item Suppose $x_n \to x_1$ and $Px_n \to x_2$
+    \item Since the image is closed, $x_2=Px_2$
+    \item Now $P(x_n-Px_n)=0$. Since the kernel is closed, $x_1 - x_2 \in \text{kernel }P$.
+    \item This shows $Px_1 = x_2$. By the closed graph theorem $P$ is continuous.
+  \end{itemize}
+\end{proof}
+
 \begin{claim}
   Define $T \in \mathcal{L}(\ell^\infty,\mathbb{F}^\omega)$ by \[T(x_1,,x_2 \dots) = (x_1,\frac{x_1 + x_2}{2},\frac{x_1 + x_2 +x_3}{3},\dots)\]
   
@@ -34,6 +44,10 @@
   \end{itemize} 
 
 \end{claim}
+
+\begin{proof}
+  It is clear that $||T|| \leq 1$. Also, $||T(1,1,1,\dots)||=1$ which shows $||T||=1$
+\end{proof}
 
 \begin{claim}
   Suppose $S \in B(H)$ is an isometry. Define $\phi \in \text{End}(B(H))$ by $T \to STS^*$. Then we have the following:
@@ -102,7 +116,7 @@
   Suppose $X$ is a closed subspace of a Banach space $Y$. Let $A \subseteq Y^*$ be the annihilator of $X$. Then we have the following:
   \begin{itemize}
     \item $A$ is closed
-    \item There is an isometric linear isomorphism from $\frac{Y}{X}$ to $A$
+    \item There is an isometric linear isomorphism from $(\frac{Y}{X})^*$ to $A$
   \end{itemize}
 \end{claim}
 
@@ -142,11 +156,11 @@
 \begin{claim}
   Let $K=[0,1]^2$ and let $B$ denote the Banach algebra $L^\infty(K)$.
   Define an involution $g \to g^*$ on $B$ by $g^*(x,y)=\overline{g(y,x)}$.
-  Define \[\Psi:B \to \text{End}(L^2[0,1])\] by \[g \to (f \to (x \to \int_0^1 g(x,y)f(y)dy))\]
+  Define the bilinear map $\rho:B \times L^2[0,1] \to L^2[0,1]$ by \[(g,f) \to \left(x \to \int_0^1 g(x,y)f(y)dy \right)\]
   Then the following hold:
   \begin{itemize}
-    \item $\text{image }\Psi \subseteq B(L^2[0,1])$
-    \item $\Psi(g)^*=\Psi(g^*)$
+    \item $\rho$ is continuous
+    \item $(f \to \rho(g,f))^*=(f \to \rho(g^*,f))$
   \end{itemize}
 \end{claim}
 
