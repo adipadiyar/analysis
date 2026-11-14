@@ -50,21 +50,25 @@
 \end{proof}
 
 \begin{claim}
-  Suppose $S \in B(H)$ is an isometry. Define $\phi \in \text{End}(B(H))$ by $T \to STS^*$. Then we have the following:
+  
+  Define $\Psi: B(H) \times B(H) \to B(H)$ by $(S,T) \to STS^*$. Then we have the following:
+  
   \begin{itemize}
-    \item $\phi$ is injective
-    \item $||\phi||=1$
+    
+    \item $\Psi$ is continuous
+    
+    \item $\Psi_{S_1 \circ S_2}=\Psi_{S_1} \circ \Psi_{S_2}$
+    
+    \item If $S$ is an isometry then
+    
+          \begin{itemize}
+              \item $\Psi_S$ is injective
+              \item $||\Psi_S||=1$
+          \end{itemize}
+  
   \end{itemize}
-\end{claim}
 
-\begin{proof}
-  Consider the following:
-  \begin{itemize}
-    \item Suppose $\phi(T)=0$. Then $S^*(STS^*)S=T=0$ since $S^*S=1$
-    \item $||\phi(T)|| \leq ||S|| \ ||T|| \ ||S^*|| = ||T||$ which shows $||\phi|| \leq 1$
-    \item $||\phi(I)||=||SS^*||=||S^*||=1$ which shows $||\phi||=1$
-  \end{itemize}
-\end{proof}
+\end{claim}
 
 \begin{claim}
   Suppose $U \in B(H)$ is self adjoint and unitary. Define $P=\frac{U+I}{2}$. Then $P^2=P$
