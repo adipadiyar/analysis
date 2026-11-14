@@ -53,23 +53,39 @@
   Suppose $S \in B(H)$ is an isometry. Define $\phi \in \text{End}(B(H))$ by $T \to STS^*$. Then we have the following:
   \begin{itemize}
     \item $\phi$ is injective
-    \item $\phi$ is continuous
     \item $||\phi||=1$
   \end{itemize}
 \end{claim}
+
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item Suppose $\phi(T)=0$. Then $S^*(STS^*)S=T=0$ since $S^*S=1$
+    \item $||\phi(T)|| \leq ||S|| \ ||T|| \ ||S^*|| = ||T||$ which shows $||\phi|| \leq 1$
+    \item $||\phi(I)||=||SS^*||=||S^*||=1$ which shows $||\phi||=1$
+  \end{itemize}
+\end{proof}
 
 \begin{claim}
   Suppose $U \in B(H)$ is self adjoint and unitary. Define $P=\frac{U+I}{2}$. Then $P^2=P$
 \end{claim}
 
 \begin{claim}
-  For $f \in C[0,1]$, define $T_f \in B(L^2[0,1])$ by $g \to gf$. Then the map $f \to T_f$ is continuous.
+  The bilinear map $\Psi:C[0,1] \times L^2[0,1] \to L^2[0,1]$ given by $(f,g) \to fg$ is continuous
 \end{claim}
+
+\begin{proof}
+  We have $||\Psi(f,g)|| \leq ||f||_\infty ||g||_2$
+\end{proof}
 
 \begin{claim}
   Suppose $(x,y) \to \langle x , y \rangle_0$ is a new inner product on a Hilbert space $H$ that satisfies $||x||_0 \leq ||x||$ for all $x \in H$. 
   Then there is $T \in B(H)$ such that $\langle x ,y \rangle_0 = \langle Tx,y \rangle$
 \end{claim}
+
+\begin{proof}
+  
+\end{proof}
 
 \begin{claim}
   Suppose $X$ is a finite measure space and $f \in L^\infty(X)$. Define $a_n>0$ by $a_n = \int_X |f|^n$. Then $\frac{a_{n+1}}{a_n} \to ||f||_\infty$
