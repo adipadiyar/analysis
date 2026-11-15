@@ -236,7 +236,8 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
     \end{proof}
     \item [7] Consider the sequence $\frac{1}{2},3,\frac{1}{4},4,\frac{1}{8},5...$. The corresponding measure space is as required.
 
-    \item[8] Consider the measurable space $(\mathbb{R},\mathcal{S})$ where $\mathcal{S}$ is all unions of $(-\infty,0],(0,\frac{1}{2}],(\frac{1}{2},1),[1,\frac{3}{2}),[\frac{3}{2},\infty)$. Define the measures $\mu$ and $\nu$ by their values on these sets, respectively $1,1,1,1,1$ and $1,2,0,2,1$. Now define $\mathcal{A}=\{(0,1),(\frac{1}{2},\frac{3}{2})\}$
+    \item[8] Consider the measurable space $(\mathbb{R},\mathcal{S})$ where $\mathcal{S}$ is all unions of \[(-\infty,0],(0,\frac{1}{2}],(\frac{1}{2},1),[1,\frac{3}{2}),[\frac{3}{2},\infty)\]
+             Define the measures $\mu$ and $\nu$ by their values on these sets, respectively $1,1,1,1,1$ and $1,2,0,2,1$. Now define $\mathcal{A}=\{(0,1),(\frac{1}{2},\frac{3}{2})\}$
 
     \item[9] trivial
     \item[10] Consider the measure space from 2B.1 and $E_i=[i,\infty)$
@@ -303,7 +304,7 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
 
     \item[6] Let $\epsilon > 0$. Define $A_{m,n}=\bigcap_{k=m}^\infty \{x:f_k(x)>n\}\in \mathcal{S}$. Now $A_{1,n}\subseteq A_{2,n}..$ and $\bigcup_m A_{m,n}=X$, so lim $\mu(A_{m,n})=\mu(X)$. So there is $m_n$ such that $\mu(X)-\mu(A_{m_n,n})<\frac{\epsilon}{2^n}$. Let $E =\bigcap_nA_{m_n,n}$. Then, as in the text, $\mu(X \setminus E)<\epsilon$. 
 
-    Now we must verify uniform convergence. Let $n>0$. Since $E \subseteq A_{m_n,n},f_k(x)>n$ for all $k\geq m_n$ and $x \in E$
+    Now we must verify uniform convergence. Let $n>0$. Since \[E \subseteq A_{m_n,n},f_k(x)>n\] for all $k\geq m_n$ and $x \in E$
 
     \item [7]\begin{claim}[Dini]
         Let $X$ be compact and let $g_1,g_2..$ be an increasing sequence of continuous functions on $X$ that converges pointwise to $g$, which is continuous. Then the convergence is uniform.
@@ -334,14 +335,10 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
 
     $\mu(f^{-1}(0,\infty))>0$ if and only if $\mu(f^{-1}(\frac{1}{n},\infty))>0$ for some $n$
 
-    \item[4] Consider the function $f:[0,1]\to(0,1]$ \\ given by $f(x)=\begin{cases}
-        \frac{1}{n}, \text{ where }n \text{ is smallest such that } x=\frac{m}{n} \text{ for some }m, \text{ if } x \in \mathbb{Q} \\
-        1 \text{ otherwise}
-    \end{cases}$ 
+    \item[4] Consider the function $f:[0,1]\to(0,1]$ which is $\frac{1}{n}$ where $n$ is smallest such that $x=\frac{m}{n}$ for some $m$, if $x \in \mathbb{Q}$ 
+            and $1$ if $x \notin \mathbb{Q}$. Then $L(f,P,[0,1])=0$. This function is Borel measurable.
 
-    Then $L(f,P,[0,1])=0$. This function is Borel measurable.
-
-    \item[5] Let $P$ be a partition of $\mathbb{Z}_{>0}$. Then $\mathcal{L}(b,P)=\sum|A_j|\text{ inf}_{A_j}b= \sum_{j:A_j \text{ is finite}}|A_j|\text{ inf}_{A_j}b\leq \sum b_i$
+    \item[5] Let $P$ be a partition of $\mathbb{Z}_{>0}$. Then \[\mathcal{L}(b,P)=\sum|A_j|\text{ inf}_{A_j}b= \sum_{j:A_j \text{ is finite}}|A_j|\text{ inf}_{A_j}b\leq \sum b_i\]
 
     Also, $\sum_{i=1}^nb_i\leq\mathcal{L}(b,P)$ where $P$ is the partition $\{1\},...\{n\},\{n+1,...\}$
 
@@ -351,12 +348,13 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
 
     We now need to prove $-\epsilon +\sum_{j=1}^m \sum_{x \in A_j} w(x)f(x)<\sum_{x \in X_0} w(x)f(x)$ for some finite set $X_0$. But this is true.
 
-    Also $\sum_{i=1}^nw(x_i)f(x_i)\leq\mathcal{L}(f,P)$ where $P$ is the partition $\{x_1\},\{x_2\},..,\{x_n\},X\setminus\{x_1,..x_n\}$
+    Also \[\sum_{i=1}^nw(x_i)f(x_i)\leq\mathcal{L}(f,P)\] where $P$ is the partition $\{x_1\},\{x_2\},..,\{x_n\},X\setminus\{x_1,..x_n\}$
 
     \item[8] Let $f_k=\chi_{[k,k+1]}$
 
     \item [9]
-    Let $E_1,E_2,.. \in \mathcal{S}$ be disjoint. Then $\nu(\bigcup E_i)=\int \chi_{\bigcup E_i}fd\mu=\int (\sum \chi_{E_i}f)d\mu$. By the monotone convergence theorem, this is $lim\int (\sum_{i=1}^n \chi_{E_i}f)d\mu=lim \sum_{i=1}^n \int \chi_{E_i}fd\mu=\sum v(E_i)$
+      Let $E_1,E_2,.. \in \mathcal{S}$ be disjoint. Then \[\nu(\bigcup E_i)=\int \chi_{\bigcup E_i}fd\mu=\int (\sum \chi_{E_i}f)d\mu\]
+      By the monotone convergence theorem, this is \[lim\int (\sum_{i=1}^n \chi_{E_i}f)d\mu=lim \sum_{i=1}^n \int \chi_{E_i}fd\mu=\sum v(E_i)\]
 
     \item [10] Follows directly from the monotone convergence theorem
 
@@ -381,7 +379,7 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
     
     Now $\mathcal{L}(f,P)=\sum_{i=1}^t \mu_2(E_i)\text{inf}_{E_i}f=\sum_{i=1}^t c_{m_i}\sum_{j=m_i}^k\mu_2(S_j\cap E_i)$
 
-    We also have $\mathcal{L}(f,P')=\sum_{j=1}^k\mu_2(S_j)\text{inf}_{S_j}f=\sum_{i=1}^t\sum_{j=m_i}^k  \mu_2(S_j\cap E_i)\text{inf}_{S_j}f$
+    We also have \[\mathcal{L}(f,P')=\sum_{j=1}^k\mu_2(S_j)\text{inf}_{S_j}f=\sum_{i=1}^t\sum_{j=m_i}^k  \mu_2(S_j\cap E_i)\text{inf}_{S_j}f\]
 
     \item[19]$\text{inf }f\leq f\leq \text{sup } f$, so we can use 3.8 to get the required result.
     
@@ -491,7 +489,7 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
 
     \item [3] Let $W$ be a non-Borel set. Define $E=\{(w,w):w \in W\}$ and use Problem 2
 
-    \item [4] The function $(x,y)\to xy$ is the product of the projection functions and is hence measurable. Now $h=Prod \ \circ (f,g)$. So $h^{-1}(a,\infty)=(f,g)^{-1}(Prod^{-1}(a,\infty))$. 
+    \item [4] The function $(x,y)\to xy$ is the product of the projection functions and is hence measurable. Now $h=Prod \ \circ (f,g)$. So \[h^{-1}(a,\infty)=(f,g)^{-1}(Prod^{-1}(a,\infty))\]
 
     Let $A,B$ be Borel sets. Now $(f,g)^{-1}(A\times B)=f^{-1}(A)\times g^{-1}(B)\in \mathcal{S}\otimes\mathcal{T}$
 
@@ -600,34 +598,34 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
 
 \section*{Chapter 7}
 \subsection*{7A}
-\begin{itemize}
-    \item [1] We have $||\alpha f||_\infty=\text{inf}\{t>0:\mu(\{x \in X:|f(x)|>\frac{t}{|\alpha|}\})=0\}=|\alpha|\text{inf}\{t>0:\mu(\{x \in X:|f(x)|>t\})=0\}=|\alpha|||f||_\infty$
+\begin{enumerate}
+    \item We have $||\alpha f||_\infty=\text{inf}\{t>0:\mu(\{x \in X:|f(x)|>\frac{t}{|\alpha|}\})=0\}=|\alpha|\text{inf}\{t>0:\mu(\{x \in X:|f(x)|>t\})=0\}=|\alpha|||f||_\infty$
 
     Let $\epsilon>0$. Then there is $t_1<||f||_\infty+\frac{\epsilon}{2}$, $t_2<||g||_\infty+\frac{\epsilon}{2}$ with $\mu(\{x:|f(x)|>t_1\})=0$ and $\mu(\{x:|g(x)|>t_2\})=0$
 
     Now $\{x:|f(x)+g(x)|>t_1+t_2\}\subseteq \{x:|f(x)|+|g(x)|>t_1+t_2\}\subseteq \{x:|f(x)|>t_1\}\cup\{x:|g(x)|>t_2\}$. So $||f+g||_\infty \leq t_1+t_2<||f||_\infty+||g||_\infty +\epsilon$
 
-    \item[2] As shown in the text, equality holds precisely when $a=b^{\frac{1}{p-1}}$, which is $a^p=b^{p'}$ 
+    \item As shown in the text, equality holds precisely when $a=b^{\frac{1}{p-1}}$, which is $a^p=b^{p'}$ 
 
-    \item[3] Let the measure space be $\{1,..,n\}$ and $f(i)=a_i,h(i)=\frac{1}{n^{4/5}}$, with $p=5$. Then applying Holder's inequality gives the required result.
+    \item Let the measure space be $\{1,..,n\}$ and $f(i)=a_i,h(i)=\frac{1}{n^{4/5}}$, with $p=5$. Then applying Holder's inequality gives the required result.
 
-    \item[4] We have $\mu\{x:|h(x)|>||h||_\infty\}=0$. So $|f|(||h||_\infty-|h|)\geq 0$ almost everywhere. If we integrate, we obtain the required result.
+    \item We have $\mu\{x:|h(x)|>||h||_\infty\}=0$. So $|f|(||h||_\infty-|h|)\geq 0$ almost everywhere. If we integrate, we obtain the required result.
 
-    \item[5] Clearly, we may assume $||f||_p,||h||_{p'}\neq0$. We have $||\tilde{f}\tilde{h}||_1=\int \frac{|\tilde{f}|^p}{p}+\frac{|\tilde{h}|^{p'}}{p'}$ where $\tilde{f}=\frac{f}{||f||_p}$ and $\tilde{h}=\frac{h}{||h||_{p'}}$
+    \item Clearly, we may assume $||f||_p,||h||_{p'}\neq0$. We have $||\tilde{f}\tilde{h}||_1=\int \frac{|\tilde{f}|^p}{p}+\frac{|\tilde{h}|^{p'}}{p'}$ where $\tilde{f}=\frac{f}{||f||_p}$ and $\tilde{h}=\frac{h}{||h||_{p'}}$
 
     This is equivalent to $\int \frac{|\tilde{f}|^p}{p}+\frac{|\tilde{h}|^{p'}}{p'}-|\tilde{f}\tilde{h}|=0$. By Young's inequality, 3A.3 and Problem 2 this is equivalent to $|\tilde{f}(x)|^p=|\tilde{h}(x)|^{p'}$ almost everywhere
 
     Conversely, suppose $|f(x)|^p=c|h(x)|^{p'}$ almost everywhere. Then it is easy to see that Holder's inequality is an equality.
 
-    \item[6] We have \[\int|fh|=\int |f|||h||_\infty\iff \int |f|(||h||_\infty-|h|)=0 \]
+    \item We have \[\int|fh|=\int |f|||h||_\infty\iff \int |f|(||h||_\infty-|h|)=0 \]
 
     This integral is $\int \chi_E |f|(||h||_\infty-|h|)$ where $E=\{x:f(x)\neq 0 \text{ and }|h(x)|<||h||_\infty\}$. Hence by 3A.3 this integral is zero if and only if $\mu(E)=0$.
 
     The given condition is $\mu\{x:f(x)\neq 0,|h(x)| \neq ||h||_\infty\}=0$. This is equivalent by Problem 4.
 
-    \item[7] Let $\tilde{f}=|f|^r$ and $\tilde{h}=|h|^r$. Then apply Holder's inequality
+    \item Let $\tilde{f}=|f|^r$ and $\tilde{h}=|h|^r$. Then apply Holder's inequality
 
-    \item[8] \begin{claim}
+    \item \begin{claim}
         Suppose $\frac{1}{p_1}+..+\frac{1}{p_n}=\frac{1}{p}$. Then $||f_1f_2..f_n||_p\leq||f_1||_{p_1}..||f_n||_{p_n}$
     \end{claim}
 
@@ -636,19 +634,37 @@ This document contains solutions to the textbook MIRA, available at \\ measure.a
         
         We have $||f_1 f_2..f_{n+1}||_p\leq ||f_{n+1}||_{p_{n+1}}||f_1f_2..f_n||_q$. Now apply the induction hypothesis.
     \end{proof}
+    
+    \item 
 
-    \item[10] We need only prove b), and the case $q=\infty$ is trivial. It suffices to prove the following claim
+    \item We need only prove b), and the case $q=\infty$ is trivial. It suffices to prove the following claim
 
     \begin{claim}
         Let $x_1,x_2,..,x_n>0$. Define, for $\alpha > 0$, $g(\alpha)=(x_1^\alpha+..+x_n^\alpha)^{1/\alpha}$. Then $g$ is decreasing
     \end{claim}
 
     \begin{proof}
-        Let $\alpha_1 < \alpha_2$. Define $p_i=\frac{x_i^{\alpha_1}}{g(\alpha_1)^{\alpha_1}}$. Then $\sum p_i=1$, so $\sum p_i^\frac{\alpha_2}{\alpha_1}\leq 1$. If we expand this we get $g(\alpha_2)^{\alpha_2}\leq g(\alpha_1)^{\alpha_2}$, so we are done.
+        Let $\alpha_1 < \alpha_2$. Define $p_i=\frac{x_i^{\alpha_1}}{g(\alpha_1)^{\alpha_1}}$. 
+        Then $\sum p_i=1$, so $\sum p_i^\frac{\alpha_2}{\alpha_1}\leq 1$. 
+        If we expand this we get $g(\alpha_2)^{\alpha_2}\leq g(\alpha_1)^{\alpha_2}$, so we are done.
     \end{proof}
 
-    \item[11] The harmonic sequence
-\end{itemize}
+    \item The harmonic sequence
+    
+    \item 
+    \item
+    \item
+    \item 
+    
+    \item Consider the following:
+          \begin{itemize}
+            \item Let $E_n = \{x: |f(x)| > ||f||_\infty - \frac{1}{n}\}$ which has positive measure
+            \item Now $||f||_p \geq \mu(E_n)^\frac{1}{p}(||f||_\infty - \frac{1}{n})$
+            \item This gives $\text{liminf } ||f||_p \geq ||f||_\infty$
+            \item The other direction is trivial
+          \end{itemize}
+
+\end{enumerate}
 
 \subsection*{7B}
 \begin{itemize}
