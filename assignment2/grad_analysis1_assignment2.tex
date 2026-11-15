@@ -167,9 +167,14 @@
   Consider the following:
   \begin{itemize}
     \item The map $J:Y \to Y^{**}$ satisfies these requirements
-    \item The map $T_1(y) \to T_2(y)$ can be extended using the previous claim to $\Psi:X_1 \to X_2$. 
-          It is easy to see that this is an isometry. 
-          Since it is an isometry, the image must be closed and hence the map must be surjective.
+    \item 
+    
+      \begin{itemize}
+        \item The map $T_1(y) \to T_2(y)$ can be extended using the previous claim to $\Psi:X_1 \to X_2$. It is easy to see that this is an isometry. 
+        \item Since $\Psi$ is an isometry, $\text{image}(\Psi)$ must be closed
+        \item Since $T_2(Y)$ is dense in $X_2$ and contained in $\text{image}(\Psi)$, $\Psi$ must be surjective. 
+      \end{itemize}
+    
   \end{itemize}
 \end{proof}
 
@@ -177,20 +182,28 @@
   Suppose $X$ is a compact Hausdorff space and $x_0 \in X$. Let $M= \{f \in C(X):f(x_0)=0\}$. Then we have the following:
   \begin{itemize}
     \item $M$ is a closed subspace of $C(X)$
-    \item There is an isometric linear isomorphism from $\frac{C(X)}{M}$ to $\mathbb{F}$
+    \item There is an isometric linear isomorphism from $Y=\frac{C(X)}{M}$ to $\mathbb{F}$
   \end{itemize}
 \end{claim}
 
 \begin{proof}
-  Let $\phi \in C(X)^*$ be evaluation at $x_0$. 
+  Let $\phi \in C(X)^*$ be evaluation at $x_0$. We see that $||\phi|| = 1$
   \begin{itemize}
     \item Since $M$ is the kernel of $\phi$ it must be closed
     \item 
+    
+      \begin{itemize}
+        \item The first isomorphism theorem gives a linear isomorphism $\widetilde{\phi}:Y \to \mathbb{F}$
+        \item $||\widetilde{\phi}(\pi(f))||=||\phi(f)||=|f(x_0)|$
+        \item Clearly, $|f(x_0)| \geq ||\pi(f)||$
+        \item $||\pi(f)|| \leq ||f + (f(x_0)1 - f)||_\infty|| = |f(x_0)|$
+      \end{itemize}
+    
   \end{itemize}
 \end{proof}
 
 \begin{claim}
-  Suppose $X$ is a closed subspace of a Banach space $Y$. Let $A \subseteq Y^*$ be the annihilator of $X$. Then we have the following:
+  Suppose $X$ is a closed subspace of a Banach space $Y$. Let $A = \{\psi \in Y^*: \psi(x) = 0 \text{ for all }x \in X\}$ be the annihilator of $X$. Then we have the following:
   \begin{itemize}
     \item $A$ is closed
     \item There is an isometric linear isomorphism from $(\frac{Y}{X})^*$ to $A$
