@@ -1,0 +1,620 @@
+\documentclass{article}
+\usepackage{graphicx,amsmath,amsfonts,amsthm} % Required for inserting images
+\newtheorem*{claim}{Claim}
+
+\title{Solutions to Kesavan}
+\author{Aditya Padiyar}
+\date{February 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document contains solutions to \textit{Functional Analysis} by Kesavan
+
+\section*{Chapter 2}
+
+\begin{enumerate}
+    \item  It will suffice to prove $c$ is a closed subspace of $\ell^\infty$. The other assertion follows since limit is bounded linear.
+
+    Let $x \in \overline{c}$. Let $\epsilon>0$ and get $y \in C$ with $||x-y||<\frac{\epsilon}{4}$. Now $|y_m-y_n|<\frac{\epsilon}{2}$ for $m,n \geq N$. So $|x_m-x_n|\leq|x_m-y_m|+|x_n-y_n|+|y_m-y_n|<\epsilon$ for $m,n \geq n$
+
+    \item Let $x \in c_0$. Define $x^i=(x_1,x_2,..,x_i,0,0,..) \in c_{00}$. Now $||x-x^i||\to 0$
+    \item Follows from Problem 2 since $\ell^1 \supseteq c_{00}$
+    \item This is Minkowski's inequality (see MIRA)
+    \item 
+    \item We know that $C_b(\mathbb{R})$, the space of continuous bounded functions, is a real Banach space. The fact that $C_c(\mathbb{R})$ is a subspace follows from $\text{support }f+g=\overline{(f+g)^{-1}(\mathbb{R}\setminus\{0\} )} \subseteq \overline{f^{-1}(\mathbb{R}\setminus \{0\}) \cup g^{-1}(\mathbb{R}\setminus \{0\})}=\text{support }f \cup \text{support }g$
+
+    Define $f_n(x)=\begin{cases}
+        e^{-x^2} \text{ if } |x| \leq n \\
+        e^{-n^2}(n+1-|x|) \text{ if } |x| \in (n,n+1) \\
+        0 \text{ else}
+    \end{cases}$
+
+    This provides a sequence in $C_c(\mathbb{R})$ which converges to $x \to e^{-x^2}$ which is not in $C_c(\mathbb{R})$. Hence $C_c(\mathbb{R})$ is not closed and thus not complete
+
+    \item It is clear that $C_0(\mathbb{R})$ is a subspace of $C_b(\mathbb{R})$. We need to show that is closed.
+
+    Suppose $f_n \to f$ with each $f_n \in C_0(\mathbb{R})$. Let $\epsilon > 0$, there is $N$ such that $||f_n-f|| \leq \frac{\epsilon}{2}$ for $n \geq N$. Get a compact set $K$ such that $|f_N(x)|<\frac{\epsilon}{2}$ outside $K$. Now $|f(x)| \leq |f_N(x)|+|f(x)-f_N(x)| < \epsilon$ outside $K$
+
+    Let $f \in C_0(\mathbb{R})$ and $\epsilon > 0$. We have a compact set $K$ such that $|f(x)|< \frac{\epsilon}{3}$ outside $K$. Put $K \subseteq [-N,N]$. 
+    
+    Define $g(x)=\begin{cases}
+        f(x) \text{ if } |x| \leq N+1 \\
+        f(N+1)(N+2-x) \text{ if } x \in (N+1,N+2) \\
+        f(-N-1)(N+2+x) \text{ if } x \in (-N-2,-N-1) \\
+        0 \text{ else }
+    \end{cases}$
+
+    Then $g \in C_c(\mathbb{R})$ and $|f(x)-g(x)| \leq |f(x)|+|g(x)|<\frac{2\epsilon}{3}$ which shows that $C_c(\mathbb{R})$ is dense.
+
+    \item 
+
+    \item Define a norm on $\mathcal{C}^k[0,1]$ by $||f|| = \text{max}_{t \in [0,1]}\{|f^{(0)}(t)|,|f^{(1)}(t)|,..|f^{(k)}(t)|\}$ and suppose $f_1,f_2,..$ is a Cauchy sequence. Note that since $||h|| \geq ||h^{(r)}||_\infty$ we get that $f_1^{(r)},f_2^{(r)},..$ is a Cauchy sequence in the Banach space $C[0,1]$. 
+    
+    Hence by Theorem 7.17 of Rudin this converges to $f^{(r)}$, for some $f \in \mathcal{C}^k[0,1]$. 
+    
+    Then by the equation $||h|| \leq \sum_{r=0}^k||h^{(r)}||_\infty$ we get that $f_i \to f$
+
+    \item 
+    \item 
+    \item 
+
+    \item It suffices to show $\pi(B(0,1))$ is open in $V/W$. Suppose $||v||<1$. 
+
+    \begin{claim}
+        $v+W$ is an interior point of $\pi(B(0,1))$
+    \end{claim}
+    
+    \begin{proof}
+    Suppose $||x-v+W||<1-||v||$. Then we get $||x-v+w||<1-||v||$. Now $||x+w|| \leq ||x-v+w||+||v||<1$. We also have $\pi(x+w)=x+W$
+    \end{proof}
+
+    \item \begin{itemize}
+        \item Suppose $T$ is continuous and $v_1,v_2,..$ is a Cauchy sequence. Now $||Tv_n-Tv_m|| \leq ||T|| \ ||v_n-v_m||$ which shows the forward direction.
+
+        \item     Suppose Cauchy sequences are mapped to Cauchy sequences. 
+        
+        Let $x_n \to 0$. Then $x_1,0,x_2,0,.. \to 0$. We get that $Tx_1,0,Tx_2,0,..$ is Cauchy and hence $||Tx_1||,0,||Tx_2||,0,..$ is Cauchy since norm is uniformly continuous. Hence $Tx_n \to 0$ 
+    \end{itemize}
+    
+    
+    
+
+
+    \item \begin{itemize}
+        \item  It is clear that $||f||_\infty+||f'||_\infty \geq ||f||_1 \geq ||f'||_\infty$ which shows that $||T|| \leq 1$
+
+        \item   Now consider $f_n(x)=x^n$. We have $||f_n'||_\infty=n \leq ||T||||f_n||\leq (n+1)||T||$. This shows that $||T|| \geq 1$
+    \end{itemize}
+    
+   
+    
+  
+
+    \item \begin{itemize}
+        \item  We have $T^n1=(x \to \frac{x^n}{n!})$, so $||T^n|| \geq \frac{1}{n!}$
+
+        \item   Now, apply Theorem 5.15 of Rudin (Taylor's theorem) to $T^nf$ to get $T^nf(x)=\frac{f(s)}{n!}x^n$ from which we get $||T^n|| \leq \frac{1}{n!}$
+    \end{itemize}
+    
+    \item 
+    \item 
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item It is easy to see that $T \in \overline{\text{GL}_n(\mathbb{C})}$ for any upper triangular matrix. Since conjugation is a homeomorphism, density follows. Openness follows from 2.39.
+
+    \begin{claim}
+        GL$_n(\mathbb{C})$ is path connected
+    \end{claim}
+    \item
+    \item
+    \item
+    \item
+    
+
+    \item We have $||D_w(x)||^2=\sum|w_ix_i|^2 \leq ||w||||x||^2$ from which we get continuity.
+
+    For this map to be invertible the map $x \to (\frac{x_1}{w_1},\frac{x_2}{w_2},..)$ must be a bounded linear operator on $\ell_2$.
+
+    Suppose this is true, and let $C$ be the operator norm. Since $e_i \to \frac{1}{w_i}e_i$ we get $|w_i| \geq C$
+
+    Suppose $w_i$ don't get arbitrarily close to $0$. Then \[||(\frac{x_1}{w_1},\frac{x_2}{w_2},..)||=\sum |\frac{x_i}{w_i}|^2 \leq C^2 ||x||^2\] as required.
+
+    \item
+    \item
+
+    \item By Proposition 2.3.3 $\mathcal{L}(V)$ is a Banach space and then use 6.41 of MIRA
+
+    \item We have $\sum_{k=1}^\infty ||A^k|| \leq \sum_{k=1}^\infty ||A||^k<\infty$ where the first inequality follows from 2.3.4. Use Problem 36 to establish convergence. Let $S$ be the sum. Now $||S(I-A)-I||=\text{lim}||S_n(I-A)-I||=\text{lim}||A^{n+1}||=0$. 
+    
+    A similar calculation on the other side proves the claim.
+
+    \item \begin{enumerate}
+        \item Follows from Problem 36
+        
+        \item Define $E_n(T)=I+\sum_{k=1}^n\frac{T^k}{k!}$. Then $E_n(A+B)-E_n(A)E_n(B)=0$ by the binomial theorem and commutativity, then take limits
+        
+        \item yes, its inverse is $\text{exp}(-A)$, by (b) and the fact that $A$ commutes with $-A$
+        
+        \item $\text{exp}(tA)=\text{exp}(t\alpha I+t\omega R_{\frac{\pi}{2}})=e^{\alpha t}\text{exp}(t\omega R_{\frac{\pi}{2}})$, by (b) 
+        
+        Now use Corollary 3 of Section 1.3 of Perko.
+    \end{enumerate} 
+
+    \item From Problem 37 it follows that $I \in \text{interior }\text{GL}(V)$. Let $A$ be invertible. Since the map $B \to AB$ is a homeomorphism and $GL(V)$ is invariant, the result follows.
+
+    \item 
+    \begin{enumerate}
+        
+        \item It is easy to see that $||T||=||S||=1$
+        \item 
+        \begin{itemize}
+            \item We have $||SA-I||=||SA-ST|| <1$. From Problem 37 we have that $SA$ is invertible. Thus $A$ cannot be invertible since $S$ is not.
+
+            \item  Since this ball around $T$ does not intersect $\mathcal{G}$, $\mathcal{G}$ is not dense.
+        \end{itemize}
+        
+    \end{enumerate}
+
+    \item 
+    \item 
+    \item 
+    
+    \item \begin{enumerate}
+        \item Since $\frac{f(x)}{f(x_0)}x_0 - x\in Z$, we have $||x+Z||=||\frac{f(x)}{f(x_0)}x_0+Z||$ which simplifies to the RHS
+        \item see (c)
+        \item By (a) we need to prove sup$_{||x|| \leq 1}||x+Z||=1$
+        
+        Since the map $\pi$ has norm 1 it suffices to show that $||x+Z||>(1-\epsilon)||x||$ for some $x$, and this is shown by 2.3.1.
+    \end{enumerate}
+\end{enumerate}
+
+\section*{Chapter 3}
+
+\begin{enumerate}
+    \item 
+    \item 
+    \item 
+    
+    \item Take $x \to x$ and $x \to x^2$ to see that the definition of strict convexity is not satisfied.
+    
+    \item \begin{itemize}
+        \item     Suppose $f \in W^*$ with $f_1 \neq f_2 \in V^*$ extensions such that $||f_1||=||f_2||=||f||$. Now $||\frac{f_1}{||f||}||=||\frac{f_2}{||f||}||=1$ so by strict convexity $||f_1+f_2||<2||f||$. Now $||2fw||=||f_1w+f_2w|| \leq ||f_1+f_2|| \ ||w||$ which is a contradiction
+
+        \item     Suppose $||f_1||=||f_2||=1$ with $f_1(x_0)=f_2(x_0)=||x_0||$. Then we get $f_1=f_2$ by applying the previous result with $f(cx_0)=c||x_0||$
+    \end{itemize}
+
+    \item By Corollary 3.1.1 get $\tilde{f} \in (V/\overline{W})^*$ with $||\tilde{f}||=1$. Then $\tilde{f} \circ \pi$ is the required functional.
+
+    \item Let $x_1,..,x_n$ be a basis of $X$ and let $f_1,..,f_n$ be the dual basis. Let $g_i=f_i \circ T$ and by Hahn-Banach get extensions $\tilde{g_i} \in V^*$. Then $v \to \sum (\tilde{g_i}v)x_i$ is the desired extension.
+
+    \item By the previous problem get a map $T \in \mathcal{L}(V,W)$ which is identity on $W$. 
+    
+    
+    ker $T$ is the required subspace since $v-Tv \in \text{ker }T$ 
+
+    ker $T$ is closed since $T$ is continuous.
+
+    If $w \in \text{ker }T$, then $Tw=w=0$. Hence this sum is direct.
+
+    \item \begin{enumerate}
+        
+        \item for $x \in \ell_1$ define $f_x \in (c_0)^*$ by $f_x(y)=\sum y_i\overline{x_i}$. It is clear that this map is linear, injective and norm preserving.
+
+        let $f \in (c_0)^*$. 
+        \begin{claim}
+            $x=(\overline{fe_i}) \in \ell_1$
+        \end{claim}
+
+        \begin{proof}
+            Define $a^n_i=\begin{cases}
+                \overline{\frac{fe_i}{|fe_i|}} \text{ if }fe_i \neq 0 \text{ and } i \leq n \\
+                0 \text{ else}
+            \end{cases}$
+            
+            Then $fa^n=\sum_{i=1}^n|fe_i|$ 
+        \end{proof}
+
+        It is clear that $f$ and $f_x$ agree on $e_i$ and we are done by Problem 2.2
+
+        \item see MIRA 7.26
+        \item In $\ell_1$, let $W=\overline{\{\text{span }e_k\}_{k > N}}$
+        
+        From (a), we have $\ell_1/W \cong (c_0)^*/\overline{\{\text{span }fe_k\}_{k > N}}$
+
+        We have the map $\text{drop}:\ell_1 \to \ell_1^N$ that takes the first $N$ slots. It has kernel $W$. Now for $x \in \ell_1$ we have $||x+W||=||\text{drop }x||$
+
+        In $c_0$, let $H=\text{span}(e_1,..,e_N)$. By Problem 13, we have $H^* \cong (c_0)^*/H^\perp$.
+
+    \end{enumerate}
+    
+    
+    \item 
+    \item Suppose $x \in \ell_1$. Get $n$ such that $|x_n| \geq |x_k|$ for all $k$. Now $\sum_{k=1}^N|x_k|(1-\frac{1}{k}) \leq ||x||_1 -\frac{|x_n|}{n}$ for all sufficiently large $N$. 
+    
+    This shows that $|f_y(x)| \leq ||x||_1-\frac{|x_n|}{n}$. Since $||f_y||=1$ we are done
+
+    \item $p(x)=\text{inf}\{\alpha > 0: ||\frac{x}{\alpha}||<r\}=\frac{||x||}{r}$
+
+    \item \begin{enumerate}
+        \item $W^\perp= \cap \text{ker}J_x$ which is an intersection of closed sets
+        
+        \item \begin{itemize}
+            \item Let $g \in W^\perp$ and $||w||\leq 1$. Then $||f-g|| \geq ||(f-g)w||=||fw||$. Take the supremum over $w$ and then the infimum over $g$. This proves LHS$\geq$RHS
+
+            \item Extend $f_{|W}$ to $\tilde{f}$ by Hahn-Banach such that $||\tilde{f}||=||f_{|W}||$. Then LHS$\leq||f-(f-\tilde{f})||=$ RHS where the inequality follows since $f-\tilde{f} \in W^\perp$
+        \end{itemize}
+        
+        \item \begin{itemize}
+            \item Suppose $f \in W^*$ and $\tilde{f_1},\tilde{f_2}$ are extensions, then clearly $\tilde{f_1}-\tilde{f_2} \in W^\perp$ which shows that this map is well defined.
+
+            \item Also $||\tilde{f}+W^\perp||=d(\tilde{f},W^\perp)=||f||$ by (b). 
+
+            \item Linearity, injectivity and surjectivity are trivial to check.
+        \end{itemize}
+        
+        \item \begin{itemize}
+            \item Suppose $f \in W^\perp$. It is easy to check that $v+W \to fv$ is a well defined map. We claim that this map is in the pre image of $f$.
+            
+            Now $||fv||=||f(v+w)|| \leq ||f|| \ ||v+w||$. Hence $||fv|| \leq ||f|| \ ||v+W||$ which shows that this map has norm at most $||f||$
+            
+            This shows surjectivity.
+
+            \item Injectivity is easy to check. 
+            
+            \item \begin{itemize}
+                \item $||\tau g|| = ||g \circ\pi|| \leq ||g||$ since $||\pi||=1$. 
+
+                \item The other inequality is shown by the first bullet point, since $\tau$ is injective.
+            \end{itemize}
+            
+            
+            
+            
+        \end{itemize}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item $Z^\perp=\cap \text{ker}g$
+        \item Suppose $x_0 \in (W^\perp)^\perp$ with $x_0 \notin \overline{W}$. By Hahn-Banach get $f \in W^\perp$ such that $f(x_0) \neq 0$ 
+        \item trivial
+        \item Suppose $f \in (Z^\perp)^\perp$ but $f \notin \overline{Z}$. By Hahn-Banach get $J_x \in V^{**}$ such that $J_xZ=0$ but $J_xf \neq 0$  
+    \end{enumerate}
+    
+    \item follows directly from definition
+    \item follows directly from definition, since $fA \in V^*$ for any $f \in W^*$
+    \item follows from definition and the corresponding property for scalar valued functions
+    \item trivial
+    \item \begin{enumerate}
+        \item $f \to f(s)$ is a bounded linear functional
+        \item follows from Fubini's theorem
+    \end{enumerate}
+    \item We need to show $\frac{\int_t^{t+h}[\phi(s)-\phi(t)]ds}{h} \to 0$. Let $\epsilon > 0$ and get $\delta>0$ such that $||\phi(s)-\phi(t)||<\epsilon$ if $|s-t|<\delta$. Then the norm of the fraction is bounded by $\frac{\int_t^{t+h}||\phi(s)-\phi(t)||ds}{h}$. If $h<\delta/2$ we can bound this by $\epsilon$
+    \item 
+    \item 
+    
+    
+    \item Define $A:V\to \mathbb{F}^n$ by $A=f_1 \times .. \times f_n$. 
+    
+    Now ker$A \subseteq \text{ker }f_0$, so $f_0=\tilde{f_0} \circ \pi$. 
+    
+    Similarly, ker$A \subseteq \text{ker}f_i$ so $f_i=\tilde{f_i}\circ \pi$. 
+    
+    By Problem 3F.25 of LADR, $\tilde{f_0}=\sum\alpha_i\tilde{f_i}$. Composing with $\pi$ finishes the job.
+    
+\end{enumerate}
+
+\section*{Chapter 4}
+
+\begin{enumerate}
+    \item Suppose $v_1,v_2,..$ is a basis for a Banach space $V$. 
+    
+    Then $V=\bigcup_{i}\text{span}(v_i,..,v_i)$. This violates Baire's theorem.
+
+    \item \begin{enumerate}
+        \item This follows from 2.28
+        \item it is easy to see that $0 \in \overline{\text{NonZeroTrace}}$. Now add a zero trace matrix to both sides.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item We have \[(x \to \sum_{i=1}^na_ix_i) \in (c_0)^*\]
+              By Corollary 4.2.2 $(x \to \sum a_ix_i) \in (c_0)^*$. Now use Problem 3.9
+
+        \item We have $(x \to \sum_{i=1}^na_ix_i) \in (\ell_p)^*$ by Holder's inequality. Now the same technique works.
+    \end{enumerate}
+
+    \item 
+    \item 
+    \item 
+    \item Suppose $x_n \to x$ and $Tx_n \to y$. We have $a(Tx_n,Tx-y)=a(x_n,T^2x-Ty)$, from which we see that $a(y,Tx-y)=a(x,T^2x-Ty)=a(Tx,Tx-y)$ and now use the closed graph theorem.
+
+    \item Suppose $x_n \to x$ and $Tx_n \to y$. Suppose $Tx-y \neq 0$ so get $f_j$ such that $f_jTx-f_jy \neq 0$. But we have $f_jTx_n \to f_jTx$ and $f_jTx_n \to f_jy$
+
+    \item Suppose $x_n \to x$ and $Bx_n \to y$. Then $ABx_n=Tx_n \to Ay=Tx$. So $Bx=y$
+
+    \item Suppose $f \in W^\perp$. Let $w_n \to w \in \overline{W}$. Now $fw_n \to fw=0$
+
+    \item Suppose $g \in (\text{ker}f)^\perp$. Assume $f(x_0)=1$. Now $x-f(x)x_0 \in \text{ker}f$
+    \item the map lim has a right inverse which is the constant sequence
+
+    \item Suppose $ST=I$. Then $w-TSw \in \text{ker}S$, which shows ker $S \oplus$range $T=W$. Suppose $Tx_n \to w$. Then $x_n \to Sw$ and $Tx_n \to TSw$
+
+    Suppose $W=T(V) \oplus N$ and let $P$ be the first projection. Define $S$ by $TSw=Pw$. Now $T(STv-v)=PTv-Tv=0$. Suppose $w_n \to w$ and $Sw_n \to v$. Then $TSw_n=Pw_n \to Pw=Tv=TSw$. Hence $T(v-Sw)=0$
+
+    \item \begin{enumerate}
+        \item 
+            Let $x_n$ be Cauchy in $V$. Then $Tx_n$ and $x_n$ are Cauchy in $W$. So $x_n \to w_1$ and $Tx_n \to w_2$. Since the graph is closed, $w_1 \in V$ and $w_2=Tw_1$. Now $||x_n-w_1||=||x_n-w_1||_W+||Tx_n-Tw_1||_W \to 0$
+        \item 
+        Get constants $C_1$ and $C_2$ such that $||x||_W \leq C_1||x||_V$ and $||Tx||_W \leq C_2||x||V$. Adding, we get that the identity map on $V$ is a homeomorphism using the open mapping theorem.
+    \end{enumerate}
+
+    \item use the open mapping theorem
+
+    \item For $z \in \text{ker}T$, we have $||T(v+z)|| =||Tv|| \geq c||v+z||$ which shows continuity of $(\tilde{T})^{-1}$,and the open mapping theorem finishes the job.
+
+    \item $T$ is invertible, $\iff T$ is bijective and continuous, $\iff T^*$ is bijective and continuous, $\iff T^*$ is invertible
+
+    To get the second equivalence use Theorem 4.7.1 , Corollary 4.7.1, and Proposition 4.7.3
+
+    \item follows from Corollary 4.7.1
+\end{enumerate}
+
+\section*{Chapter 5}
+\begin{enumerate}
+    \item Suppose a topology is such that all $f \in W^*$ are continuous. For $U \subseteq \mathbb{F}$ open and $f \in V^*$, we have $i^{-1}f^{-1}U=(f \circ i)^{-1}U$ which is open.
+
+    Suppose a topology is such that $i:W \to V_{\text{weak}}$ is continuous. Let $f \in W^*$. Extend $f$ to $g \in V^*$. Let $U \subseteq \mathbb{F}$ be open. Now $f^{-1}U=(g^{-1}U) \cap W=i^{-1}g^{-1}U$ which is open.
+
+    \item \begin{itemize}
+        \item Since $\overline{W}$ is convex and norm closed, from Proposition 5.1.4 it is weakly closed. This shows that that it contains the weak closure.
+
+        \item The other inclusion follows since the norm topology is finer than the weak topology.
+    \end{itemize}
+    
+    \item Suppose $f$ is in the weak* closure of $W^\perp$. 
+    
+    Let $w\in W$. A weak* neighborhood of $f$ is $\{g:|(f-g)(w)|<\frac{1}{n}\}$. 
+    
+    Hence get $g_n \in W^\perp$ with $g_n(w) \to f(w)=0$
+
+    \item Consider the weak open set $U=\{x:|f_i(x-x_0)|<\epsilon\}$. Let $x,y \in U$. Then $|f_i(tx+(1-t)y-(t+1-t)x_0)| < \epsilon$ by the triangle inequality
+
+    Consider the weak* open set $U=\{f:|(f-f_0)(x_i)|<\epsilon\}$. Let $f,g \in U$. Then $|(tf+(1-t)g-(t+1-t)f_0)(x_i)|<\epsilon$
+
+    \item 
+    \item 
+    \item 
+    \item 
+    \item \begin{claim}
+        in $c_0$ we have $e_n\rightharpoonup0$
+    \end{claim}
+
+    \begin{proof}
+        Fix $x \in \ell_1$. Then $f_xe_n=\overline{x_n} \to 0$. But $(c_0)^*=\ell_1$
+    \end{proof}
+
+    \begin{claim}
+        in $\ell_\infty$ we have $e_n\rightharpoonup0$
+    \end{claim}
+
+    \begin{proof}
+        Let $f \in (\ell_\infty)^*$. Since $f_{|c_0} \in (c_0)^*$ we have $fe_n \to 0$ by the previous claim.
+    \end{proof}
+
+    \item 
+    \item 
+    
+    \item From Corollary 5.1.1 we have $||x|| \leq \text{liminf }||x_n||$. From the problem we get $||x|| \geq \text{limsup }||x_n||$
+
+    \item 
+    \item 
+    \item
+    \item
+    
+    \item Assume $V$ is infinite dimensional. Consider a weak* open neighborhood $U=\{f:|f(x_i)|<\epsilon\}$. Apply Corollary 3.3.1 to $W=$ span $x_i$ to get $0 \neq f \in W^\perp$. We can scale this functional to an arbitrarily large norm and it is in $U$
+    
+    \item 
+    \item 
+    \item 
+    \item 
+    
+    \item \begin{itemize}
+        \item We have $||Tx|| \leq \frac{\pi^2}{6}||x||$ which shows continuity
+        
+        \item $T(e_1+..+e_n)=(1,\frac{1}{4},..,\frac{1}{n^2},0,0,..) \to \{\frac{1}{n^2}\} \notin \text{range }T$. This shows that $T(B)$ is not closed.
+    \end{itemize}
+    
+    \item From Theorem 5.3.1 $B$ is weakly compact. Hence, $T(B)$ is weakly compact and thus closed.
+    
+    \item Suppose $V \subseteq \ell_1$ is reflexive.
+    \begin{claim}
+        $B_V$, the closed unit ball in $V$, is compact
+    \end{claim}
+
+    \begin{proof}
+        Suppose $v_n \in B_V$. By Theorem 5.4.2 $v_{n_k} \rightharpoonup v$. By Schur's lemma $v_{n_k} \to v$. Since $B_V$ is closed $v \in B_V$. We have shown sequential compactness.
+    \end{proof}
+
+    By Proposition 2.3.6 $V$ is finite dimensional
+    
+    \item We have $c_{00} \subseteq \ell_p \subseteq c_0$. It is easy so see that $S=\bigcup_{n \geq 1}\mathbb{Q}^n$ is dense in $c_{00}$. By Problem 2.2 $S$ is dense in $c_0$. Since on $\ell_p$ the sup norm is finer than the p-norm, we are done.
+    
+    \item See the previous problem
+    
+    \item By Stone-Weierstrass, polynomials are dense in $\mathcal{C}[0,1]$. Separability follows since any polynomial can be approximated with one with rational coefficients, or, if the field is $\mathbb{C}$, one with coefficients having rational real and imaginary parts.
+
+\end{enumerate}
+
+
+\section*{Chapter 6}
+
+\begin{enumerate}
+    \item 
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+    \item
+\end{enumerate}
+
+\section*{Chapter 7}
+
+\begin{enumerate}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+
+\section*{Chapter 8}
+
+\begin{enumerate}
+    \item By Proposition 5.1.2 $x_n$ is bounded. Suppose $T(x_n)$ does not converge to $T(x)$. Then we have $n_k$ such that $||T(x_{n_k})-T(x)|| \geq \epsilon$. By Remark 8.1.1 $T(x_{n_{k_j}}) \to w$. Since $T$ is also weakly continuous we have that $T(x)=w$ which is a contradiction.
+    
+    \item \begin{enumerate}
+        \item Suppose $x_n$ is bounded. By Theorem 5.4.2 $x_{n_k} \rightharpoonup x$. By hypothesis $T(x_{n_k}) \to T(x)$. By Remark 8.1.1 $T$ is compact.
+
+        \item Consider the identity operator on $\ell_1$. By Schur's lemma it satisfies the given property. But by Example 8.1.3 it is not compact.
+    \end{enumerate}
+    
+    \item In the Hilbert space $\ell_2$ let $M=\overline{\text{span}(e_1,e_3,..)}$. We have that $P_MP_{M^\perp}=0$ which is compact. But by 10.74 of MIRA neither $P_M$ nor $P_{M^\perp}$ is compact.
+    
+    \item 
+    
+    \begin{enumerate}
+        
+        \item This follows from Problem 2 (a) and the Schur property of $\ell_1$
+
+        \item We have $T^* \in \mathcal{L}(W^*,(c_0)^*)$. By Problem 3.9, we have an isometric isomorphism $\phi:(c_0)^* \to \ell_1$. By Corollary 5.3.3 and Problem 2 (a), $\phi \circ T^*$ is compact. Hence, $T^*$ is compact, which proves the claim by Proposition 8.1.3.
+    
+    \end{enumerate}
+    
+    \item Assume that $T$ is injective. Then, by Corollary 4.4.1, we have $T^{-1} \in \mathcal{L}(\mathcal{R}(T),c_0)$. By the previous problem, $T$ is compact. It remains compact when we restrict the co-domain to $\mathcal{R}(T)$. This contradicts Example 8.1.4.
+    
+    \item This follows from 10.74 of MIRA
+    
+    \item Linearity is obvious. Using the Cauchy-Schwarz inequality, it is easy to show that the map is bounded. Since it has finite rank, it is compact.
+    
+    \item By the Riesz Representation Theorem, get $v_k \in H$ such that $\langle x,v_k \rangle = \langle Tx, w_k \rangle$ for all $x \in H$
+    
+    \item We have that $T \in B(H)$ by Problem 7. It is easy to see that $T^2=0$. Therefore, we have $(I+\alpha T)(I - \alpha T)=I$ which proves the claim.
+    
+    \item Assume $\langle Ax,x \rangle \geq \alpha ||x||^2$ for all $x \in H$, with $\alpha>0$. Find an orthonormal sequence $e_1,e_2,..$. By Bessel's inequality (Theorem 7.4.1), we have that $e_n \rightharpoonup 0$. By Problem 1, we have that $Te_n \to 0$. By the hypothesis and the Cauchy-Schwarz inequality, we have $\alpha \leq \langle Te_n,e_n \rangle  \leq ||Te_n||$. Taking the limit, we get a contradiction.
+    
+    \item 
+    
+    \begin{itemize}
+        \item Suppose $S(I-T)=I$. Then $I-T$ is injective. By Theorem 8.2.1, $I-T$ is surjective as well. Then $S=(I-T)^{-1}$, which proves the forward direction.
+
+        \item Suppose $(I-T)S=I$. Then $I-T$ is surjective. By Theorem 8.2.1, $I-T$ is injective as well. Then $S=(I-T)^{-1}$, which proves the backward direction.
+    \end{itemize}
+
+    Suppose $S=(I-T)^{-1}$. Then we have $I-S=-ST$. By Example 8.1.4, $-ST$ is compact, and hence so is $I-S$
+    
+    \item We have $||Tx_n|| \to ||T||$ where $||x_n||=1$. By Theorem 5.4.2, we have $x_{n_k} \rightharpoonup x$. By Problem 1 and the continuity of the norm $||Tx_{n_k}|| \to ||Tx|| = ||T|| \leq ||T|| ||x||$. Dividing, we get $||x|| \geq 1$ and by Proposition 5.1.2 we get $||x|| \leq 1$.
+    
+    \item Suppose, for the sake of contradiction, that $||u_n||_2> \epsilon ||u_n||_1+n||u_n||_3$. We may assume that $||u_n||_1=1$. By Theorem 5.4.2 we get $u_{n_k} \rightharpoonup u$ in $H_1$. By Problem 1 and the continuity of the inclusions, $u_{n_k} \to u$ in $H_2$ and $H_3$. We have $||u_{n_k}||_2 > \epsilon + n_k ||u_{n_k}||_3$ from which it follows that $u=0$. Then it follows that $\epsilon \leq 0$, which is a contradiction.
+    
+    \item Define the linear map $\text{Hankel}:\ell_1 \to \mathcal{L}(\ell_2)$ by \[(\text{Hankel}_ax)_k=\sum_{j=1}^\infty x_ja_{j+k-1}\]
+    
+    \begin{claim}
+        $||\text{Hankel}|| \leq 1$ 
+    \end{claim}
+
+    \begin{proof}
+        Let $a \in \ell_1$ and $b=(|a_1|,|a_2|,..) \in \ell_1$. It is easy to see that $||\text{Hankel}_a|| \leq ||\text{Hankel}_b||$. By Schur's test on page 41 of the textbook, we have $||\text{Hankel}_b|| \leq ||a||_1$
+    \end{proof}
+
+    \begin{claim}
+        $\mathcal{R}(\text{Hankel}) \subseteq \mathcal{K}(\ell_2)$
+    \end{claim}
+
+    \begin{proof}
+        We know that $c_{00}$ is dense in $\ell_1$. It is easy to see that $\text{Hankel}(c_{00}) \subseteq \text{FiniteRank}(\ell_2) \subseteq \mathcal{K}(\ell_2)$. By Theorem 18.1 of Munkres we have \\ $\mathcal{R}(\text{Hankel}) \subseteq \overline{\text{Hankel}(c_{00})}$. Proposition 8.1.1 completes the proof.
+    \end{proof}
+    
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+
+\end{document}
