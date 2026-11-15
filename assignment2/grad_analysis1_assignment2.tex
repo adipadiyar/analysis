@@ -103,7 +103,7 @@
 \end{proof}
 
 \begin{claim}
-  Suppose $X$ is a finite measure space and $f \in L^\infty(X)$. Then $\frac{||f||_{n+1}^{n+1}}{||f||_n^n} \to ||f||_\infty$
+  Suppose $X$ is a finite measure space and $f \in L^\infty(X)$. Then $\frac{(||f||_{n+1})^{n+1}}{(||f||_n)^n} \to ||f||_\infty$
 \end{claim}
 
 \begin{proof}
@@ -127,12 +127,32 @@
   Suppose $p,q \geq 1$ and $p \neq q$. Then $L^p(\mathbb{R}) \neq L^q(\mathbb{R})$
 \end{claim}
 
+\begin{proof}
+  We may assume $p<q$. Define $f(x)=\frac{1}{x^\frac{1}{p}}$ for $x \geq 1$ and $0$ otherwise. Then $f \notin L^p(\mathbb{R})$ but $f \in L^q(\mathbb{R})$
+\end{proof}
+
 \begin{claim}
   Suppose $X$ is a measure space. Then the set of all complex measures on $X$ is a Banach space with $||\nu||=|\nu|(X)$
 \end{claim}
 
 \begin{proof}
   See Axler
+\end{proof}
+
+\begin{claim}
+  Suppose $T_0 \in B(X_0,Y)$ where $Y$ is Banach. Let $X$ be a completion of $X_0$. Then the following hold:
+  \begin{itemize}
+    \item There is a unique $T \in B(X,Y)$ which extends $T_0$
+    \item $||T||=||T_0||$
+  \end{itemize}
+\end{claim}
+
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item By the universal property of completions, there is continuous $T:X \to Y$ which extends $T_0$. Linearity and uniqueness are easy to see.
+    \item Suppose $x \in X$ with $||x|| \leq 1$. Then $x_n^0 \to x$ with $||x_n^0|| \leq 1$. Hence $||Tx|| \leq ||T_0||$
+  \end{itemize}
 \end{proof}
 
 \begin{claim}
@@ -143,19 +163,19 @@
   \end{itemize}
 \end{claim}
 
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item The map $J:Y \to Y^{**}$ does the job
+    \item The existence of such an isometric linear map follows from the previous claim. Since it is an isometry, the image must be closed and hence the map must be surjective.
+  \end{itemize}
+\end{proof}
+
 \begin{claim}
   Suppose $X$ is a compact Hausdorff space and $x_0 \in X$. Let $M= \{f \in C(X):f(x_0)=0\}$. Then we have the following:
   \begin{itemize}
     \item $M$ is a closed subspace of $C(X)$
     \item There is an isometric linear isomorphism from $\frac{C(X)}{M}$ to $\mathbb{F}$
-  \end{itemize}
-\end{claim}
-
-\begin{claim}
-  Suppose $T_0 \in B(X_0,Y)$ where $Y$ is Banach. Let $X$ be a completion of $X_0$. Then the following hold:
-  \begin{itemize}
-    \item There is a unique $T \in B(X,Y)$ which extends $T_0$
-    \item $||T||=||T_0||$
   \end{itemize}
 \end{claim}
 
