@@ -150,8 +150,8 @@
 \begin{proof}
   Consider the following:
   \begin{itemize}
-    \item By the universal property of completions, there is continuous $T:X \to Y$ which extends $T_0$. Linearity and uniqueness are easy to see.
-    \item Suppose $x \in X$ with $||x|| \leq 1$. Then $x_n^0 \to x$ with $||x_n^0|| \leq 1$. Hence $||Tx|| \leq ||T_0||$
+    \item Since $T$ is uniformly continous, by the universal property of completions, there is continuous $T:X \to Y$ which extends $T_0$. Linearity and uniqueness are easy to see.
+    \item Suppose $x \in X$ with $||x|| \leq 1$. Then $x_n^0 \to x$ with $||x_n^0|| \leq 1$. Hence $||Tx|| = \text{lim }||Tx_n^0|| \leq ||T_0||  \ ||x_n^0|| \leq ||T_0||$
   \end{itemize}
 \end{proof}
 
@@ -166,8 +166,10 @@
 \begin{proof}
   Consider the following:
   \begin{itemize}
-    \item The map $J:Y \to Y^{**}$ does the job
-    \item The existence of such an isometric linear map follows from the previous claim. Since it is an isometry, the image must be closed and hence the map must be surjective.
+    \item The map $J:Y \to Y^{**}$ satisfies these requirements
+    \item The map $T_1(y) \to T_2(y)$ can be extended using the previous claim to $\Psi:X_1 \to X_2$. 
+          It is easy to see that this is an isometry. 
+          Since it is an isometry, the image must be closed and hence the map must be surjective.
   \end{itemize}
 \end{proof}
 
@@ -178,6 +180,14 @@
     \item There is an isometric linear isomorphism from $\frac{C(X)}{M}$ to $\mathbb{F}$
   \end{itemize}
 \end{claim}
+
+\begin{proof}
+  Let $\phi \in C(X)^*$ be evaluation at $x_0$. 
+  \begin{itemize}
+    \item Since $M$ is the kernel of $\phi$ it must be closed
+    \item 
+  \end{itemize}
+\end{proof}
 
 \begin{claim}
   Suppose $X$ is a closed subspace of a Banach space $Y$. Let $A \subseteq Y^*$ be the annihilator of $X$. Then we have the following:
