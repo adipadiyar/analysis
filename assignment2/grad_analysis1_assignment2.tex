@@ -262,14 +262,31 @@
 \end{proof}
 
 \begin{claim}
-  Fix $t > 0$. Define $S \in B(L^2[0,\infty))$ by $f \to (x \to f(x+t))$. Then we have the following:
+  
+  Fix $t > 0$ and define:
+  
   \begin{itemize}
-    \item $S^*f(x)=f(x-t)$ for $x \geq t$
-    \item $S^*f(x)=0$ for $x < t$
+    \item $S \in B(L^2[0,\infty))$ by $f \to (x \to f(x+t))$
+    \item $T \in B(L^2[0,\infty))$ by $Tf(x) = f(x-t)$ for $x \geq t$ and $Tf(x)=0$ for $x<t$
+  \end{itemize}
+
+  Then we have the following:
+  
+  \begin{itemize}
+    \item $S^*=T$
     \item $SS^*=1$
     \item $S^*S \neq 1$
   \end{itemize}
+
 \end{claim}
+
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item It is easy to see that the equation $\langle Sf, g \rangle = \langle f , Tg \rangle$ is satisfied for all $f,g \in L^2[0,\infty)$
+    \item Define $g \in L^2[0,\infty)$ by $g(x)=0$ for $x > t$ and $g(x)=1$ for $x \leq t$. Then $TSg=0$, but $g \neq 0$
+  \end{itemize}
+\end{proof}
 
 \begin{claim}
   Let $K=[0,1]^2$ and let $B$ denote the Banach algebra $L^\infty(K)$.
