@@ -97,7 +97,7 @@
   \begin{itemize}
     \item Define the conjugate linear map $\Psi:H \to H^*$ by $\Psi(y)(x)= \langle x , y \rangle_0$
     \item Let $R:H^* \to H$ be the Riesz map. Define $T=R \circ \Psi$
-    \item $||Tx||=||\Psi(x)|| \leq ||x||$ which shows $||T|| \leq 1$
+    \item $||Tx||=||\Psi(x)|| \leq ||x||$ by Cauchy-Schwarz. This shows $||T|| \leq 1$
     \item We have $\langle Tx , y \rangle = \langle R \Psi x , y \rangle = \overline{\Psi(x)(y)} = \langle x , y \rangle_0$
   \end{itemize}
 \end{proof}
@@ -166,7 +166,7 @@
 \begin{proof}
   Consider the following:
   \begin{itemize}
-    \item The map $J:Y \to Y^{**}$ satisfies these requirements
+    \item Let $J:Y \to Y^{**}$ be the canonical isometry and set $X=\overline{J(Y)}$ which is a Banach space since $Y^{**}$ is Banach.
     \item 
     
       \begin{itemize}
@@ -195,8 +195,8 @@
       \begin{itemize}
         \item The first isomorphism theorem gives a linear isomorphism $\widetilde{\phi}:Y \to \mathbb{F}$
         \item $||\widetilde{\phi}(\pi(f))||=||\phi(f)||=|f(x_0)|$
-        \item Clearly, $|f(x_0)| \geq ||\pi(f)||$
         \item $||\pi(f)|| \leq ||f + (f(x_0)1 - f)||_\infty|| = |f(x_0)|$
+        \item $|f(x_0)| = |(f + g)(x_0)| \leq ||f + g||$ for $g \in M$. Hence $|f(x_0)| \leq ||\pi(f)||$ 
       \end{itemize}
     
   \end{itemize}
@@ -253,7 +253,15 @@
 \end{proof}
 
 \begin{claim}
-  Define $U_t \in B(L^2(\mathbb{R}))$ by $f \to (x \to f(x+t))$. Then $U_t$ is unitary and $U_t^*=U_{-t}$
+  Define $\Psi:\mathbb{R} \to B( L^2( \mathbb{R} ) ) $ by $\Psi(t)(f)(x)=f(x+t)$. 
+  
+  Then we have the following:
+  
+  \begin{itemize}
+    \item $\text{range }\Psi \subseteq U( L^2( \mathbb{R} ) )$
+    \item $\Psi:\mathbb{R} \to U( L^2( \mathbb{R} ) )$ is a group homomorphism
+  \end{itemize}
+  
 \end{claim}
 
 \begin{proof}
@@ -302,7 +310,7 @@
 \begin{proof}
   Consider the following:
   \begin{itemize}
-    \item It is clear that $||\rho(g,f)|| \leq ||g||_\infty \ ||f||_2$
+    \item We have that $||\rho(g,f)|| \leq ||g||_\infty \ ||f||_1 \leq ||g||_\infty \ ||f||_2$
     \item By Tonelli, we have 
           \begin{equation*}
             \begin{split}
