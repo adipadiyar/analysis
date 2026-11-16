@@ -273,7 +273,7 @@
 
 \begin{proof}
   Suppose $f,g \in L^2(\mathbb{R})$. 
-  We have \[\langle U_t f , g \rangle = \int f(x+t) \overline{g(x)}dx = \int f(x) \overline{g(x-t)}dx = \langle f , U_{-t} g \rangle\]
+  We have \[\langle \Psi(t) f , g \rangle = \int f(x+t) \overline{g(x)}dx = \int f(x) \overline{g(x-t)}dx = \langle f , \Psi(-t) g \rangle\]
 \end{proof}
 
 \begin{claim}
@@ -310,8 +310,11 @@
 
 \begin{claim}
   Let $K=[0,1]^2$ and let $B$ denote the Banach algebra $L^\infty(K)$.
-  Define an involution $g \to g^*$ on $B$ by $g^*(x,y)=\overline{g(y,x)}$.
-  Define the bilinear map $\rho:B \times L^2[0,1] \to L^2[0,1]$ by \[(g,f) \to \left(x \to \int_0^1 g(x,y)f(y)dy \right)\]
+  Define the following:
+  \begin{itemize}
+    \item an involution $g \to g^*$ on $B$ by $g^*(x,y)=\overline{g(y,x)}$
+    \item a bilinear map $\rho:B \times L^2[0,1] \to L^2[0,1]$ by \[(g,f) \to \left(x \to \int_0^1 g(x,y)f(y)dy \right)\]
+  \end{itemize}
   Then the following hold:
   \begin{itemize}
     \item $\rho$ is continuous
