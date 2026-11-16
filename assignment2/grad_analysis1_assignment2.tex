@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{hyperref}
 
 \newtheorem{claim}{Claim}
 
@@ -13,6 +14,8 @@
 \begin{document}
 
 \maketitle
+
+\section{Claims}
 
 \begin{claim}
   Suppose $X$ is a Banach space and $P \in \text{End}(X)$ satisfies the following:
@@ -46,13 +49,17 @@
 \end{claim}
 
 \begin{proof}
-  It is clear that $||T|| \leq 1$. Also, $||T(1,1,1,\dots)||=1$ which shows $||T||=1$
+  Consider the following:
+  \begin{itemize}
+    \item It is clear that $||Tx|| \leq ||x||$ which shows that $||T|| \leq 1$
+    \item We have $||T(1,1,1,\dots)||=1$ which shows $||T||=1$
+  \end{itemize}
 \end{proof}
 
 \begin{claim}
   Define $\Psi: B(H) \times B(H) \to B(H)$ by $(S,T) \to STS^*$. Then we have the following:
   \begin{enumerate}
-    \item $\Psi_{S_1 \circ S_2}=\Psi_{S_1} \circ \Psi_{S_2}$
+    \item $\Psi_{S_1 S_2}=\Psi_{S_1} \circ \Psi_{S_2}$
     \item If $S$ is an isometry then
           \begin{itemize}
               \item $\Psi_S$ is injective
@@ -64,7 +71,7 @@
 \begin{proof}
   Consider the following:
   \begin{enumerate}
-    \item This is easy to see
+    \item We have $\Psi(S_1 S_2,T) = S_1(S_2 T S_2^*)S_1^* = \Psi(S_1, \Psi(S_2,T))$
     \item We have $1=\Psi_1=\Psi_{S^*S}=\Psi_{S^*}\Psi_S$. 
           This shows that $\Psi_S$ is injective and $||\Psi_S|| \geq 1$. 
           Since $||S||=||S^*||=1$ we get that $|\Psi_S||=1$.
@@ -84,7 +91,7 @@
 \end{claim}
 
 \begin{proof}
-  We have $||\Psi(f,g)|| \leq ||f||_\infty ||g||_2$
+  We have $||\Psi(f,g)|| \leq ||f||_\infty ||g||_2$. A bounded bilinear maps is continuous.
 \end{proof}
 
 \begin{claim}
@@ -107,7 +114,7 @@
 \end{claim}
 
 \begin{proof}
-  Follows directly from Exercise 7A.16 of Axler.
+  Exercise 7A.16 of [Axler] says that $||f||_n \to ||f||_\infty$. This gives the required result. A proof of this exercise can be found in [AxlerSolutions]. 
 \end{proof}
 
 \begin{claim}
@@ -136,7 +143,7 @@
 \end{claim}
 
 \begin{proof}
-  See Axler
+  This is Theorem 9.18 of [Axler]
 \end{proof}
 
 \begin{claim}
@@ -150,8 +157,8 @@
 \begin{proof}
   Consider the following:
   \begin{itemize}
-    \item Since $T$ is uniformly continous, by the universal property of completions, there is continuous $T:X \to Y$ which extends $T_0$. Linearity and uniqueness are easy to see.
-    \item Suppose $x \in X$ with $||x|| \leq 1$. Then $x_n^0 \to x$ with $||x_n^0|| \leq 1$. Hence $||Tx|| = \text{lim }||Tx_n^0|| \leq ||T_0||  \ ||x_n^0|| \leq ||T_0||$
+    \item Since $T_0$ is uniformly continous, by the universal property of completions, there is continuous $T:X \to Y$ which extends $T_0$. Linearity and uniqueness are easy to see.
+    \item Suppose $x \in X$ with $||x|| \leq 1$. We have $x_n^0 \to x$. Hence $||Tx|| = \text{lim }||Tx_n^0|| \leq \text{lim } ||T_0||  \ ||x_n^0|| = ||T_0||$
   \end{itemize}
 \end{proof}
 
@@ -211,7 +218,7 @@
 \end{claim}
 
 \begin{proof}
-  This is Exercise 3.13 of Kesavan's functional analysis book.
+  This is Exercise 3.13 of [Kesavan]. A proof can be found in [KesavanSolutions].
 \end{proof}
 
 \begin{claim}
@@ -291,7 +298,12 @@
 \begin{proof}
   Consider the following:
   \begin{itemize}
-    \item It is easy to see that the equation $\langle Sf, g \rangle = \langle f , Tg \rangle$ is satisfied for all $f,g \in L^2[0,\infty)$
+    \item We have 
+          \begin{align*}
+            \langle Sf, g \rangle &= \int_0^\infty f(x+t)\overline{g}(x)dx = \int_t^\infty f(x)\overline{g}(x-t)dx \\
+                                  & = \int_0^\infty f(x)\overline{Tg(x)}dx = \langle f , Tg \rangle
+          \end{align*}
+          for all $f,g \in L^2[0,\infty)$
     \item Define $g \in L^2[0,\infty)$ by $g(x)=0$ for $x > t$ and $g(x)=1$ for $x \leq t$. Then $TSg=0$, but $g \neq 0$
   \end{itemize}
 \end{proof}
@@ -324,5 +336,15 @@
           These two numbers are equal by Fubini's theorem
   \end{itemize}
 \end{proof}
+
+\section{References}
+
+The following sources:
+\begin{itemize}
+  \item {[Axler]} refers to Sheldon Axler's textbook \textit{Measure, Integration and Real Analysis} which can be found at \url{measure.axler.net}
+  \item {[Kesavan]} refers to the textbook \textit{Functional Analysis} by Kesavan
+  \item {[AxlerSolutions]} refers to the solution manual I wrote for [Axler]. This can be found on my Github \url{github.com/adipadiyar}
+  \item {[KesavanSolutions]} refers to the solution manual I wrote for [Kesavan]. This can also be found on my Github page.
+\end{itemize}
 
 \end{document}
