@@ -223,6 +223,16 @@
   \end{itemize}
 \end{claim}
 
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item Suppose $n \geq 3$. Define $\frac{1}{r} = \sum_{i=1}^{n-1} \frac{1}{p_i}$ and $g=f_1f_2\dots f_{n-1}$.
+          By the induction hypothesis we have \[||g||_r \leq ||f_1||_{p_1} ||f_2||_{p_2} \dots ||f_n||_{p_{n-1}}\]
+          By the case $n=2$ we have \[||f||_p \leq ||g||_r \ ||f_n||_{p_n} \leq ||f_1||_{p_1} ||f_2||_{p_2} \dots ||f_n||_{p_n}\]
+    \item The case $n=2$ follows immediately from Holder's inequality.
+  \end{itemize}
+\end{proof}
+
 \begin{claim}
   Suppose $p_1,p_2,p_3 \in [1,\infty)$ with $p_1 < p_2 < p_3$.
   Suppose \[\frac{1}{p_2}=\frac{s}{p_1} + \frac{(1-s)}{p_3}\]
@@ -234,7 +244,7 @@
 \end{claim}
 
 \begin{claim}
-  Fix $t \in \mathbb{R}$. Define $U \in B(L^2(\mathbb{R}))$ by $f \to (x \to f(x+t))$. Then $U$ is unitary
+  Define $U_t \in B(L^2(\mathbb{R}))$ by $f \to (x \to f(x+t))$. Then $U_t$ is unitary and $U_t^*=U_{-t}$
 \end{claim}
 
 \begin{claim}
