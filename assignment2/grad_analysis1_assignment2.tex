@@ -243,9 +243,23 @@
   \end{itemize}
 \end{claim}
 
+\begin{proof}
+  Consider the following:
+  \begin{itemize}
+    \item Set $q_1=\frac{p_1}{s}$, $q_2=\frac{p_3}{1-s}$, $f_1=|f|^s$, $f_2=|f|^{1-s}$
+    \item Then $\frac{1}{q_1} + \frac{1}{q_2} = \frac{1}{p_2}$, $f_1 \in L^{q_1}(X)$, $f_2 \in L^{q_2}(X)$
+    \item Apply the previous claim to get the desired result
+  \end{itemize}
+\end{proof}
+
 \begin{claim}
   Define $U_t \in B(L^2(\mathbb{R}))$ by $f \to (x \to f(x+t))$. Then $U_t$ is unitary and $U_t^*=U_{-t}$
 \end{claim}
+
+\begin{proof}
+  Suppose $f,g \in L^2(\mathbb{R})$. 
+  We have \[\langle U_t f , g \rangle = \int f(x+t) \overline{g(x)}dx = \int f(x) \overline{g(x-t)}dx = \langle f , U_{-t} g \rangle\]
+\end{proof}
 
 \begin{claim}
   Fix $t > 0$. Define $S \in B(L^2[0,\infty))$ by $f \to (x \to f(x+t))$. Then we have the following:
